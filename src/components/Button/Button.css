@@ -1,0 +1,10 @@
+.main-button {
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: var(--p10-button-background-color);
+  color: var(--p10-button-text-color);
+  border: none;
+  cursor: pointer;
+}

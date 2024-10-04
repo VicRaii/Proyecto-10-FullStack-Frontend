@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap");
+
+:root {
+  --p10-background-color: #232946;
+  --p10-header-background-color: #b8c1ec;
+  --p10-header-text-color: #fffffe;
+
+  --p10-button-background-color: #eebbc3;
+  --p10-button-text-color: #232946;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Playwrite DE Grund", cursive;
+}
+
+body {
+  min-height: 100svh;
+  background-color: var(--p10-background-color);
+}
