@@ -1,8 +1,12 @@
 .login-form {
+  width: 30%;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   border-radius: 8px;
   padding: 30px;
   gap: 20px;
-  background-color: var(--p10-background-color);
+  background-color: var(--p10-secondary-color);
+  color: var(--p10-primary-color);
+  border: 3px solid var(--p10-button-bg-color);
 }

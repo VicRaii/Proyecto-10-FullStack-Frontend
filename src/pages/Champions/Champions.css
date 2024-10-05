@@ -1,3 +1,7 @@
 #champions {
   min-height: 92svh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-items: center;
 }

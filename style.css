@@ -1,12 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap");
 
 :root {
-  --p10-background-color: #232946;
-  --p10-header-background-color: #b8c1ec;
-  --p10-header-text-color: #fffffe;
+  --p10-primary-color: #232946;
+  --p10-secondary-color: #b8c1ec;
+  --p10-tertiary-color: #fffffe;
 
-  --p10-button-background-color: #eebbc3;
-  --p10-button-text-color: #232946;
+  --p10-button-bg-color: #eebbc3;
 }
 
 * {
@@ -20,5 +19,5 @@
 
 body {
   min-height: 100svh;
-  background-color: var(--p10-background-color);
+  background-color: var(--p10-primary-color);
 }

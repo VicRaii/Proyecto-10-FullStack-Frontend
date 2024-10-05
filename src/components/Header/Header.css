@@ -1,6 +1,6 @@
 header {
   height: 8svh;
-  background-color: var(--p10-header-background-color);
+  background-color: var(--p10-secondary-color);
   position: sticky;
   top: 0;
   left: 0;
@@ -16,6 +16,6 @@ header ul {
 
 header a {
   font-size: 17px;
-  color: var(--p10-button-text-color);
+  color: var(--p10-primary-color);
   font-weight: 600;
 }
