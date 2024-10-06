@@ -1,7 +1,55 @@
 #champions {
+  width: 100%;
   min-height: 92svh;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--p10-gap-l);
+  padding: var(--p10-padding-m);
+  border: 1px solid #000;
+}
+
+.championsGrid {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  justify-items: center;
+  width: 250px;
+  height: 450px;
+  border: 1px solid #000;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: all 0.5s;
+}
+
+.card-img img:hover {
+  transform: scale(1.1);
+}
+
+.card-footer {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--p10-padding-s);
+  background-color: var(--p10-primary-color);
+  color: var(--p10-tertiary-color);
+  font-family: var(--font-family-LoL);
+  font-size: var(--p10-font-size-s);
+}
+
+.card-footer h3 {
+  text-transform: uppercase;
+  font-style: italic;
 }

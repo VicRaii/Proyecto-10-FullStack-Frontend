@@ -5,7 +5,31 @@
   align-items: center;
 }
 
-#home h1 {
-  color: var(--p10-header-background-color);
-  font-size: 50px;
+.home-header {
+  border: 1px solid #000;
+  width: 100%;
+  height: auto;
+  padding: var(--p10-padding-m);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--p10-gap-s);
+  -webkit-text-stroke: 0.5px var(--p10-secondary-color); /* Grosor y color del borde */
+}
+
+.home-header > h4 {
+  font-size: var(--p10-font-size-m);
+  font-family: var(--font-family-LoL);
+}
+
+.home-header > h1 {
+  font-family: var(--font-family-LoL);
+  font-size: 80px;
+  font-weight: 900;
+  line-height: 80px;
+  font-style: italic;
+}
+
+.champion-header > p {
+  font-size: 18px;
 }

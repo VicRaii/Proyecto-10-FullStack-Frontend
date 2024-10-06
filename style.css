@@ -6,6 +6,32 @@
   --p10-tertiary-color: #fffffe;
 
   --p10-button-bg-color: #eebbc3;
+
+  --p10-font-size-xs: 10px;
+  --p10-font-size-s: 15px;
+  --p10-font-size-m: 20px;
+  --p10-font-size-l: 25px;
+
+  --p10-margin-xs: 5px;
+  --p10-margin-s: 10px;
+  --p10-margin-m: 20px;
+  --p10-margin-l: 30px;
+  --p10-margin-xl: 50px;
+
+  --p10-padding-xs: 5px;
+  --p10-padding-s: 10px;
+  --p10-padding-m: 20px;
+  --p10-padding-l: 30px;
+  --p10-padding-xl: 50px;
+
+  --p10-gap-xs: 5px;
+  --p10-gap-s: 10px;
+  --p10-gap-m: 20px;
+  --p10-gap-l: 30px;
+  --p10-gap-xl: 50px;
+
+  --p10-font-family-LoL: "Beaufort for LOL";
+  --p10-font-family-Playwrite: "Playwrite DE Grund", cursive;
 }
 
 * {
@@ -14,7 +40,7 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
-  font-family: "Playwrite DE Grund", cursive;
+  font-family: var(--p10-font-family-Playwrite);
 }
 
 body {
