@@ -21,7 +21,7 @@ export const routes = [
   },
   {
     path: "/login",
-    text: "Login",
+    text: "Register / Login",
     page: Login,
   },
 ];

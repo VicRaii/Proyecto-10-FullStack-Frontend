@@ -1,15 +1,22 @@
 #home {
   min-height: 92svh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: start;
   align-items: center;
+  gap: var(--p10-gap-xl);
+  background-image: url("./src/utils/assets/SummonerRiftMap.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .home-header {
-  border: 1px solid #000;
-  width: 100%;
-  height: auto;
+  width: 80%;
+  height: fit-content;
+  background-color: rgba(255, 255, 255, 0.268);
   padding: var(--p10-padding-m);
+  margin-top: var(--p10-margin-xl);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,6 +27,7 @@
 .home-header > h4 {
   font-size: var(--p10-font-size-m);
   font-family: var(--font-family-LoL);
+  background-color: rgba(255, 255, 255, 0.268);
 }
 
 .home-header > h1 {
@@ -28,8 +36,23 @@
   font-weight: 900;
   line-height: 80px;
   font-style: italic;
+  background-color: rgba(255, 255, 255, 0.268);
 }
 
-.champion-header > p {
-  font-size: 18px;
+.home-header > p {
+  font-size: var(--p10-font-size-m);
+  text-align: center;
+  letter-spacing: 1px;
+  background-color: rgba(255, 255, 255, 0.268);
+}
+
+.login-container {
+  background-color: rgba(255, 255, 255, 0.268);
+  width: 20%;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.login-container a {
+  font-size: var(--p10-font-size-m);
 }
