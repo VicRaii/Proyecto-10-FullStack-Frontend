@@ -40,7 +40,7 @@ export const Champions = async () => {
     }
   } catch (error) {
     // Mostrar un mensaje de error si algo falla
-    div.innerHTML = `<p>Error al cargar los campeones: ${error.message}</p>`;
+    div.innerHTML = `<p>Error loading champions: ${error.message}</p>`;
   } finally {
     // Ocultar el componente loading después de que se completen las acciones
     loadingComponent.style.display = "none";
