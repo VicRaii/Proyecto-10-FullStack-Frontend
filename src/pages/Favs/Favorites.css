@@ -1,3 +1,10 @@
 #favorites {
   min-height: 92svh;
 }
+
+#favorites h1 {
+  color: var(--p10-primary-color);
+  background-color: aliceblue;
+  text-align: center;
+  font-size: 50px;
+}

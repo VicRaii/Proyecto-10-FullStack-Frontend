@@ -5,7 +5,7 @@
   justify-content: start;
   align-items: center;
   gap: var(--p10-gap-xl);
-  background-image: url("./src/utils/assets/SummonerRiftMap.webp");
+  background-image: url("./assets/SummonerRiftMap.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -21,7 +21,7 @@
   flex-direction: column;
   align-items: center;
   gap: var(--p10-gap-s);
-  -webkit-text-stroke: 0.5px var(--p10-secondary-color); /* Grosor y color del borde */
+  -webkit-text-stroke: 0.5px var(--p10-secondary-color);
 }
 
 .home-header > h4 {

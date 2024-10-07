@@ -1,22 +1,28 @@
 import "./Loading.css"; // Asegúrate de que los estilos estén en un archivo separado
 
 export const Loading = () => {
-  // Crear un contenedor para el loading
+  //   // Crear un contenedor para el loading
   const loadingContainer = document.createElement("div");
-  loadingContainer.classList.add("loading-container");
+  loadingContainer.innerHTML = `
+        <div class="loader">
+            <div data-glitch="Loading Champions..." class="glitch">Loading...</div>
+        </div>
 
-  // Crear el spinner
-  const spinner = document.createElement("div");
-  spinner.classList.add("spinner");
+  `;
+  //   loadingContainer.classList.add("loading-container");
 
-  // Crear el texto "Cargando..."
-  const loadingText = document.createElement("div");
-  loadingText.classList.add("loading-text");
-  loadingText.innerText = "Loading Champions...";
+  //   // Crear el spinner
+  //   const spinner = document.createElement("div");
+  //   spinner.classList.add("spinner");
 
-  // Añadir spinner y texto al contenedor
-  loadingContainer.appendChild(spinner);
-  loadingContainer.appendChild(loadingText);
+  //   // Crear el texto "Cargando..."
+  //   const loadingText = document.createElement("div");
+  //   loadingText.classList.add("loading-text");
+  //   //   loadingText.innerText = "Loading Champions...";
+
+  //   // Añadir spinner y texto al contenedor
+  //   loadingContainer.appendChild(spinner);
+  //   loadingContainer.appendChild(loadingText);
 
   return loadingContainer;
 };

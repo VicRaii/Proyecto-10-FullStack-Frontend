@@ -54,9 +54,16 @@
   font-style: italic;
 }
 
-.loading {
-  font-size: 1.5rem;
-  text-align: center;
-  padding: 20px;
-  color: #3498db; /* Un color distintivo */
+.likeIcon {
+  width: 30px;
+}
+
+.likeIcon img {
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.likeIcon img:hover {
+  transform: scale(1.1);
 }
