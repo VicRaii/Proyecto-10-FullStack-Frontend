@@ -35,7 +35,7 @@ export const doLogin = async (e) => {
       main.innerHTML = ""; // Limpia el contenido actual
       Champions(); // Llama a la función que renderiza la página de campeones
       window.history.pushState({}, "", "/champions"); // Cambia la URL sin recargar la página
-    }, 2000);
+    }, 1000);
   } else {
     // Mostrar notificación de error
     Notification(

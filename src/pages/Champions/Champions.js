@@ -14,13 +14,45 @@ import "../Champions/ChampionsPosition.css";
 export const Champions = async () => {
   const div = createPage("champions");
 
+  const token = localStorage.getItem("token"); // Comprobar si el usuario está logueado
+
+  if (!token) {
+    div.innerHTML = `
+      <div class="login-required">
+        <h2>You need to log in to view the Champions page</h2>  
+      </div>
+    `;
+
+    const loginContainer = document.createElement("div");
+    const h3 = document.createElement("h3");
+    const link = document.createElement("a");
+
+    loginContainer.classList.add("login-container");
+    link.textContent = "Register/Login";
+    link.href = "#"; // Evitar redireccionamiento por defecto del navegador
+    h3.textContent = "to be able to see all the Champions.";
+
+    // Agregar un evento para manejar la navegación con `navigate`
+    link.addEventListener("click", (e) => {
+      const loginRoute = routes.find((route) => route.path === "/login");
+      if (loginRoute) {
+        navigate(e, loginRoute); // Usa navigate para redirigir al login
+      }
+    });
+
+    loginContainer.append(link, h3);
+    div.appendChild(loginContainer);
+    return; // No continuar ejecutando el código
+  }
+
+  // Si está logueado, mostrar el contenido de los campeones
   const loadingComponent = Loading();
   div.appendChild(loadingComponent);
 
   try {
     const Champions = await API({
       endpoint: "/champions",
-      token: localStorage.getItem("token"),
+      token, // Pasar el token al API
     });
 
     const orderedChampions = Champions.sort((a, b) =>
@@ -31,7 +63,7 @@ export const Champions = async () => {
     let currentPage = 1;
     const totalPages = Math.ceil(orderedChampions.length / pageSize);
 
-    div.innerHTML = "";
+    div.innerHTML = ""; // Limpiar el contenido antes de mostrar los campeones
 
     const renderPage = (page) => {
       div.innerHTML = "";
