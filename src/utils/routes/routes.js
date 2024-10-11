@@ -1,5 +1,5 @@
 import { Champions } from "../../pages/Champions/Champions";
-import { Favorites } from "../../pages/Favs/Favorites";
+import { Favourites } from "../../pages/Favs/Favourites";
 import { Home } from "../../pages/Home/Home";
 import { Login } from "../../pages/Login/Login";
 import { Logout } from "../../pages/Logout/Logout";
@@ -16,9 +16,9 @@ export const routes = [
     page: Champions,
   },
   {
-    path: "/favorites",
-    text: "Favorites",
-    page: Favorites,
+    path: "/favourites",
+    text: "Favourites",
+    page: Favourites,
   },
   {
     path: "/login",

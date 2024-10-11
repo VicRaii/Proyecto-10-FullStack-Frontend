@@ -6,35 +6,48 @@ import { doLogin } from "../../utils/functions/doLogin";
 import { doRegister } from "../../utils/functions/doRegister";
 import "./Login.css";
 
-let showLogin = true;
+let showLogin = true; // Estado para alternar entre login y register
 
 export const Login = () => {
   const div = createPage("login");
-
   const form = document.createElement("form");
 
-  div.append(
-    Button({
-      text: "Registrate si no tienes cuenta",
-      fnc: () => {
-        showLogin = !showLogin;
-        showLogin ? LoginForm(form) : RegisterForm(form);
-        document.querySelector(".button-toggle").textContent = showLogin
-          ? "Registrate si no tienes cuenta"
-          : "Log in si tienes cuenta";
-        if (showLogin) {
-          form.removeEventListener("submit", doRegister);
-        } else {
-          form.removeEventListener("submit", doLogin);
-        }
-        form.addEventListener("submit", showLogin ? doLogin : doRegister);
-      },
-      className: "button-toggle",
-    })
-  );
+  // Botón para alternar entre Login y Registro
+  const toggleButton = Button({
+    text: "Registrate si no tienes cuenta",
+    fnc: () => {
+      showLogin = !showLogin; // Alternamos entre login y register
 
-  form.addEventListener("submit", doLogin);
+      // Limpiamos el formulario actual antes de cargar uno nuevo
+      form.innerHTML = "";
 
+      // Cargamos el formulario correspondiente
+      if (showLogin) {
+        LoginForm(form);
+        toggleButton.textContent = "Registrate si no tienes cuenta";
+        setFormSubmitEvent(doLogin); // Asignamos evento para login
+      } else {
+        RegisterForm(form);
+        toggleButton.textContent = "Log in si tienes cuenta";
+        setFormSubmitEvent(doRegister); // Asignamos evento para registro
+      }
+    },
+    className: "button-toggle",
+  });
+
+  // Función para asignar el evento submit correcto al formulario
+  const setFormSubmitEvent = (submitFunction) => {
+    form.onsubmit = (event) => {
+      event.preventDefault();
+      submitFunction(event);
+    };
+  };
+
+  // Inicialmente cargamos el formulario de login
   LoginForm(form);
+  setFormSubmitEvent(doLogin); // Asignamos evento para login
+
+  // Añadimos el botón de alternar y el formulario a la página
+  div.append(toggleButton);
   div.append(form);
 };

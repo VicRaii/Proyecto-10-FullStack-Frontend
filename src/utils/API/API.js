@@ -5,8 +5,11 @@ export const API = async ({
   method = "GET",
   body,
   isJSON = true,
+  token = null,
 }) => {
-  const headers = {};
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
 
   isJSON ? (headers["Content-Type"] = "application/json") : null;
 

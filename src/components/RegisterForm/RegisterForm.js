@@ -10,5 +10,5 @@ export const RegisterForm = (form) => {
           ${FieldForm({ labelText: "Email", type: "email" })}   
           ${FieldForm({ labelText: "Password", type: "password" })}   
       `;
-  form.append(Button({ text: "Register", fnc: () => {} }));
+  form.append(Button({ text: "Register" }));
 };

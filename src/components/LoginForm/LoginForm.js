@@ -6,7 +6,7 @@ export const LoginForm = (form) => {
   form.className = "login-form";
 
   form.innerHTML = `
-        ${FieldForm({ labelText: "Email", type: "email" })}   
+        ${FieldForm({ labelText: "Username" })}   
         ${FieldForm({ labelText: "Password", type: "password" })}   
     `;
   form.append(Button({ text: "Login", fnc: () => {} }));

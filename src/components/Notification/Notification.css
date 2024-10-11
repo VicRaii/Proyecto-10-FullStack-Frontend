@@ -1,0 +1,34 @@
+/* Notification.css */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  z-index: 200000000;
+  animation: slide-in 0.5s ease-in-out;
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+}
+
+.notification img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
