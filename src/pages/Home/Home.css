@@ -1,58 +1,92 @@
 #home {
   min-height: 92svh;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  gap: var(--p10-gap-xl);
-  background-image: url("/assets/SummonerRiftMap.webp");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: relative;
 }
 
 .home-header {
-  width: 80%;
-  height: fit-content;
-  background-color: rgba(255, 255, 255, 0.268);
-  padding: var(--p10-padding-m);
-  margin-top: var(--p10-margin-xl);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--p10-gap-s);
-  -webkit-text-stroke: 0.5px var(--p10-secondary-color);
+  width: 100%;
+  height: 100%;
+  position: absolute;
 }
 
-.home-header > h4 {
-  font-size: var(--p10-font-size-m);
-  font-family: var(--font-family-LoL);
-  background-color: rgba(255, 255, 255, 0.268);
+.home-header video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.home-header > h1 {
-  font-family: var(--font-family-LoL);
-  font-size: 80px;
-  font-weight: 900;
-  line-height: 80px;
-  font-style: italic;
-  background-color: rgba(255, 255, 255, 0.268);
-}
-
-.home-header > p {
-  font-size: var(--p10-font-size-m);
-  text-align: center;
-  letter-spacing: 1px;
-  background-color: rgba(255, 255, 255, 0.268);
+.home-header .capa {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
 }
 
 .login-container {
-  background-color: rgba(255, 255, 255, 0.268);
-  width: 20%;
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  width: fit-content;
   text-align: center;
-  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--p10-padding-s);
+}
+
+.login-container img {
+  width: 80%;
+  min-width: 250px;
+  margin-bottom: var(--p10-margin-m);
 }
 
 .login-container a {
   font-size: var(--p10-font-size-m);
+  width: 50%;
+  color: var(--p10-tertiary-color);
+}
+
+.login-container a:hover {
+  color: #5caaef;
+}
+
+.login-container a:before {
+  content: "";
+  border-bottom: solid 1px var(--p10-secondary-color);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  opacity: 0;
+}
+
+.login-container a:hover:before {
+  opacity: 1;
+}
+
+.login-container a,
+.login-container a:before {
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.login-container h3 {
+  border-top: none;
+}
+
+.login-container a,
+.login-container h3 {
+  background-color: #c8aa6e;
+  letter-spacing: 1px;
+  padding: var(--p10-padding-s);
+  outline: rgb(255, 255, 255) solid 1px;
+  outline-offset: 3px;
 }

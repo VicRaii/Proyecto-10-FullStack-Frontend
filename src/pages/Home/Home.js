@@ -7,30 +7,32 @@ import "./Home.css";
 export const Home = () => {
   const div = createPage("home");
   div.innerHTML = `
-      <div class="home-header">
-          <h4> CHOOSE YOUR </h4>
-          <h1> CHAMPION </h1>
-          <p> With more than 140 champions, you'll find the perfect match for your playstyle. <br> Master one, or master them all.</p>
-      </div>
+    <div class="home-header">
+        <video muted autoplay loop >
+          <source src="/assets/videoHome.webm" type="video/webm">
+        </video>
+      <div class="capa"></div>
+    </div>
   `;
 
   const loginContainer = document.createElement("div");
+  const img = document.createElement("img");
   const h3 = document.createElement("h3");
   const link = document.createElement("a");
 
+  img.src = "/assets/LoLtitle.webp";
   loginContainer.classList.add("login-container");
   link.textContent = "Register/Login";
-  link.href = "#"; // Evitar redireccionamiento por defecto del navegador
-  h3.textContent = "to be able to see all the Champions.";
+  link.href = "#";
+  h3.textContent = "to see all the Champions.";
 
-  // Agregar un evento para manejar la navegación con `navigate`
   link.addEventListener("click", (e) => {
     const loginRoute = routes.find((route) => route.path === "/login");
     if (loginRoute) {
-      navigate(e, loginRoute); // Usa navigate para redirigir al login
+      navigate(e, loginRoute);
     }
   });
 
-  loginContainer.append(link, h3);
+  loginContainer.append(img, link, h3);
   div.appendChild(loginContainer);
 };

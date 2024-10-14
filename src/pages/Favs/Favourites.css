@@ -2,9 +2,9 @@
   position: relative;
   width: 100%;
   min-height: 92svh;
-  background-color: white;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: var(--p10-gap-l);
   padding: var(--p10-padding-m);
@@ -12,7 +12,7 @@
 
 #favourites h1 {
   color: var(--p10-primary-color);
-  background-color: aliceblue;
+  background-color: rgba(240, 248, 255, 0.356);
   text-align: center;
   font-size: 50px;
   width: 100%;
@@ -28,13 +28,6 @@
   width: 250px;
   height: 450px;
   margin: 13svh var(--p10-margin-m) var(--p10-margin-xs) var(--p10-margin-m);
-  /* box-shadow: 0 0 0 3px rgba(170, 150, 39, 0.805),
-    0 0 0 6px rgba(199, 169, 36, 0.862), 0 0 0 9px rgb(220, 220, 28),
-    0 0 0 12px rgb(236, 184, 13), 0 0 0 15px rgb(233, 175, 16),
-    0 0 0 18px rgb(238, 204, 8), 0 0 0 21px rgb(248, 220, 4); */
-  /* box-shadow: 15px 15px 20px rgb(243, 219, 4);
-  background-color: #ddd; */
-
   box-shadow: 0 0 2px #d5d951, 0 0 10px #d4d92d, 0 0 20px #ecec11,
     0 0 30px #0ba9ca, 0 0 40px #dbee0a, 0 0 20px #ecf804;
   animation: blink 0.7s infinite alternate;

@@ -12,11 +12,7 @@ export const Favourites = () => {
   const token = localStorage.getItem("token"); // Comprobar si el usuario está logueado
 
   if (!token) {
-    div.innerHTML = `
-      <div class="login-required">
-        <h2>You need to log in to view the Champions page</h2>  
-      </div>
-    `;
+    div.innerHTML = "";
 
     const loginContainer = document.createElement("div");
     const h3 = document.createElement("h3");
@@ -44,7 +40,7 @@ export const Favourites = () => {
   const renderFavourites = () => {
     div.innerHTML = ""; // Limpiamos el contenido
 
-    div.innerHTML = `<div><h1>Favourites</h1></div>`;
+    div.innerHTML = `<div class="favsDiv"><h1>Favourites</h1></div>`;
     // Obtener los campeones favoritos
     const favourites = getFavourites();
 

@@ -45,7 +45,10 @@
 
 body {
   min-height: 100svh;
-  background-color: var(--p10-primary-color);
+  background-image: url(/assets/championsBG.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .disabled-link {
