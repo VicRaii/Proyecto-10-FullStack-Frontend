@@ -6,7 +6,7 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: var(--p10-gap-l);
-  padding-bottom: var(--p10-padding-m);
+  padding-bottom: var(--p10-padding-xl);
 }
 
 .championsGrid {
@@ -15,7 +15,6 @@
   width: 250px;
   height: 450px;
   margin-top: 2svh;
-  border: 1px solid #000;
 }
 
 .card-img {

@@ -1,25 +1,13 @@
-import { navigate } from "../../utils/functions/navigate";
-import { routes } from "../../utils/routes/routes";
+// Header.js
+import { HamburgerMenu } from "../../components/HamburgerMenu/HamburgerMenu"; // Importamos el componente de menú hamburguesa
 import "./Header.css";
 
 export const Header = () => {
   const header = document.createElement("header");
-  const nav = document.createElement("nav");
-  const ul = document.createElement("ul");
 
-  for (const route of routes) {
-    const li = document.createElement("li");
-    const a = document.createElement("a");
+  // Añadir el menú hamburguesa al header
+  const hamburgerMenu = HamburgerMenu();
+  header.append(hamburgerMenu);
 
-    a.addEventListener("click", (e) => navigate(e, route));
-
-    a.textContent = route.text;
-    a.href = route.path;
-    li.appendChild(a);
-    ul.append(li);
-  }
-
-  header.append(nav);
-  nav.append(ul);
   document.body.append(header);
 };

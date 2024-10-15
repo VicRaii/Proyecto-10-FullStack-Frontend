@@ -2,10 +2,10 @@
 
 :root {
   --p10-primary-color: #232946;
-  --p10-secondary-color: #b8c1ec;
+  --p10-secondary-color: #363741;
   --p10-tertiary-color: #fffffe;
 
-  --p10-button-bg-color: #eebbc3;
+  --p10-button-bg-color: #c8aa6e;
 
   --p10-font-size-xs: 10px;
   --p10-font-size-s: 15px;
@@ -45,7 +45,7 @@
 
 body {
   min-height: 100svh;
-  background-image: url(/assets/championsBG.jpg);
+  background-image: url(/assets/LoLBG.webp);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

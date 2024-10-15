@@ -1,0 +1,42 @@
+/* HamburgerMenu.css */
+.hamburger-button {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: var(--p10-button-bg-color);
+  position: relative;
+  margin-left: var(--p10-margin-s);
+  z-index: 10001;
+}
+
+.hamburger-button .bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--p10-button-bg-color);
+  margin: 5px 0;
+  transition: 0.4s;
+}
+
+.hamburger-button.active .bar1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger-button.active .bar2 {
+  opacity: 0;
+}
+
+.hamburger-button.active .bar3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+@media (max-width: 950px) {
+  nav ul.open {
+    display: flex;
+  }
+
+  .hamburger-button {
+    display: block;
+  }
+}

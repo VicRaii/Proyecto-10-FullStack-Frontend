@@ -3,18 +3,19 @@
   justify-content: space-between;
   width: 300px;
   height: fit-content;
-  border: 1px solid #000;
-  height: fit-content;
   position: absolute;
   bottom: 0;
+  background-color: rgba(255, 255, 255, 0.512);
+  padding: var(--p10-padding-xs);
+  margin: var(--p10-padding-xs);
+  margin-top: var(--p10-padding-xl);
+  border-radius: 15px;
 }
 
 .pagination button {
-  border: 1px solid #000;
   width: fit-content;
   height: 35px;
-  background-color: #007bff;
-  color: white;
+  background-color: var(--p10-button-bg-color);
   border: none;
   margin: 0 5px;
   cursor: pointer;
@@ -47,7 +48,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
   border: 1px solid #000;
   color: var(--p10-primary-color);
   font-weight: bold;
@@ -60,4 +60,9 @@
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.page-info {
+  color: var(--p10-button-bg-color);
+  text-shadow: 1px 1px 1px #000;
 }
