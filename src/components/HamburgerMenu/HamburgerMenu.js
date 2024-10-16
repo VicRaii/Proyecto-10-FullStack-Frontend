@@ -28,22 +28,61 @@ export const HamburgerMenu = () => {
     hamburgerButton.classList.toggle("active"); // Cambia el icono de hamburguesa a "X"
   });
 
-  for (const route of routes) {
-    const li = document.createElement("li");
-    const a = document.createElement("a");
+  const renderMenuItems = () => {
+    ul.innerHTML = ""; // Limpiar el contenido del menú para redibujarlo
 
-    a.addEventListener("click", (e) => {
-      navigate(e, route);
-      ul.classList.remove("open"); // Cierra el menú al hacer clic en un enlace
-      hamburgerButton.classList.remove("active"); // Restablece el botón a hamburguesa
-    });
+    const token = localStorage.getItem("token"); // Verifica si el usuario está logueado
 
-    ul.classList.add("abanico");
-    a.textContent = route.text;
-    a.href = route.path;
-    li.appendChild(a);
-    ul.append(li);
-  }
+    for (const route of routes) {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+
+      a.addEventListener("click", (e) => {
+        navigate(e, route);
+        ul.classList.remove("open"); // Cierra el menú al hacer clic en un enlace
+        hamburgerButton.classList.remove("active"); // Restablece el botón a hamburguesa
+      });
+
+      a.textContent = route.text;
+      a.href = route.path;
+
+      // Mostrar "Logout" solo si el usuario está logueado
+      if (route.text === "Logout" && !token) {
+        continue; // No agregues el botón "Logout" si no hay token
+      }
+
+      // Agregar acción de Logout
+      if (route.text === "Logout") {
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          // Eliminar el token (logout)
+          localStorage.removeItem("token");
+
+          // Emitir el evento personalizado para actualizar el menú
+          const tokenChangeEvent = new Event("tokenChange");
+          window.dispatchEvent(tokenChangeEvent);
+
+          // Redirigir al login después del logout
+          const loginRoute = routes.find((route) => route.path === "/login");
+          if (loginRoute) {
+            navigate(e, loginRoute);
+          }
+        });
+      }
+
+      li.appendChild(a);
+      ul.append(li);
+    }
+  };
+
+  // Ejecuta renderMenuItems al iniciar
+  renderMenuItems();
+
+  // Escuchar cambios en el token para redibujar el menú
+  window.addEventListener("tokenChange", () => {
+    renderMenuItems();
+  });
 
   nav.append(hamburgerButton, ul);
   return nav;

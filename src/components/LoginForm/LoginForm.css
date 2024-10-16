@@ -1,8 +1,9 @@
 .login-form {
   width: 50%;
+  height: fit-content;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   border-radius: 8px;
   padding: 30px;
   gap: 20px;

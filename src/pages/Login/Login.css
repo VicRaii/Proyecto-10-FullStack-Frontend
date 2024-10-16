@@ -1,8 +1,8 @@
 #login {
   min-height: 92svh;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
-  justify-content: flex-start;
-  gap: 20px;
+  justify-content: center;
+  gap: var(--p10-gap-xl);
 }

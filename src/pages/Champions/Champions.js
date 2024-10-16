@@ -10,6 +10,8 @@ import {
 
 import "./Champions.css";
 import "../Champions/ChampionsPosition.css";
+import { navigate } from "../../utils/functions/navigate";
+import { routes } from "../../utils/routes/routes";
 
 export const Champions = async () => {
   const div = createPage("champions");

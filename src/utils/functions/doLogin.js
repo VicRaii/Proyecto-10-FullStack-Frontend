@@ -23,6 +23,10 @@ export const doLogin = async (e) => {
     localStorage.setItem("token", res.token);
     console.log("Login successful:", res);
 
+    // Emitir el evento 'tokenChange' para notificar al header
+    const tokenChangeEvent = new Event("tokenChange");
+    window.dispatchEvent(tokenChangeEvent);
+
     // Mostrar la notificación con el GIF
     Notification(
       "https://media.tenor.com/dUCnsmkTiD8AAAAj/league-of-legends.gif",

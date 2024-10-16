@@ -45,7 +45,7 @@
 
 body {
   min-height: 100svh;
-  background-image: url(/assets/LoLBG.webp);
+  background-image: url(/assets/victoryBG.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -54,4 +54,13 @@ body {
 .disabled-link {
   pointer-events: none;
   opacity: 0.5;
+}
+
+@media (max-width: 950px) {
+  body {
+    background-image: url(/assets/victoryBG.jpg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: repeat;
+  }
 }

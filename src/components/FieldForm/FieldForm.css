@@ -6,13 +6,20 @@
   align-items: center;
   justify-content: center;
   background-color: transparent;
+  font-size: var(--p10-font-size-m);
 }
 
 .field-form > input {
-  text-align: center;
+  text-align: start;
   width: 80%;
   padding: 5px 10px;
   border-radius: 8px;
-  background-color: transparent;
-  border: 2px solid var(--p10-tertiary-color);
+  font-size: var(--p10-font-size-s);
+  background-color: rgba(255, 255, 255, 0.678);
+  border: 3px solid var(--p10-tertiary-color);
+}
+
+.field-form > input::placeholder {
+  color: var(--p10-button-bg-color);
+  font-weight: 900;
 }

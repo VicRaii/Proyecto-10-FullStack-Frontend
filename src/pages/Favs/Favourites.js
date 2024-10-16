@@ -4,6 +4,8 @@ import { renderChampionCard } from "../../utils/functions/renderChampionCard"; /
 import { addToFavourites } from "../../utils/functions/addToFavourites"; // Función para gestionar favoritos
 import "./Favourites.css";
 import "../Champions/ChampionsPosition.css";
+import { routes } from "../../utils/routes/routes";
+import { navigate } from "../../utils/functions/navigate";
 
 // Componente de favoritos
 export const Favourites = () => {

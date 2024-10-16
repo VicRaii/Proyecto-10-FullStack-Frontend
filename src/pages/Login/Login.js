@@ -10,11 +10,12 @@ let showLogin = true; // Estado para alternar entre login y register
 
 export const Login = () => {
   const div = createPage("login");
+
   const form = document.createElement("form");
 
   // Botón para alternar entre Login y Registro
   const toggleButton = Button({
-    text: "Registrate si no tienes cuenta",
+    text: "Don't have an account? Sign Up",
     fnc: () => {
       showLogin = !showLogin; // Alternamos entre login y register
 
@@ -24,11 +25,11 @@ export const Login = () => {
       // Cargamos el formulario correspondiente
       if (showLogin) {
         LoginForm(form);
-        toggleButton.textContent = "Registrate si no tienes cuenta";
+        toggleButton.textContent = "Don't have an account? Sign Up";
         setFormSubmitEvent(doLogin); // Asignamos evento para login
       } else {
         RegisterForm(form);
-        toggleButton.textContent = "Log in si tienes cuenta";
+        toggleButton.textContent = "Already have an account? Log in";
         setFormSubmitEvent(doRegister); // Asignamos evento para registro
       }
     },
@@ -50,4 +51,5 @@ export const Login = () => {
   // Añadimos el botón de alternar y el formulario a la página
   div.append(toggleButton);
   div.append(form);
+  tokenC;
 };
