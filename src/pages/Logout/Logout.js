@@ -11,8 +11,11 @@ export const Logout = () => {
 
   // Ejecutar el logout automáticamente cuando se carga la página
   const doLogout = () => {
-    // Eliminar el token del localStorage
-    localStorage.removeItem("token");
+    // Eliminar todos los elementos del localStorage relacionados con el usuario
+    localStorage.removeItem("token"); // Elimina el token
+    localStorage.removeItem("userName"); // Si guardaste el nombre de usuario
+    // Puedes eliminar otros valores almacenados de manera similar, o limpiar todo:
+    // localStorage.clear(); // Esto eliminará **todos** los elementos del localStorage
 
     // Mostrar la notificación de logout exitoso
     Notification(

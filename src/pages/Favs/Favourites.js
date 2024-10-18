@@ -47,7 +47,7 @@ export const Favourites = () => {
     const favourites = getFavourites();
 
     if (favourites.length === 0) {
-      div.innerHTML = "<p>No hay campeones favoritos aún.</p>";
+      div.innerHTML = "<p class='noFavs'>No favourites yet</p>";
     } else {
       // Mostrar los campeones favoritos usando renderChampionCard
       favourites.forEach((champion) => {

@@ -10,7 +10,6 @@ let showLogin = true; // Estado para alternar entre login y register
 
 export const Login = () => {
   const div = createPage("login");
-
   const form = document.createElement("form");
 
   // Botón para alternar entre Login y Registro
@@ -51,5 +50,4 @@ export const Login = () => {
   // Añadimos el botón de alternar y el formulario a la página
   div.append(toggleButton);
   div.append(form);
-  tokenC;
 };

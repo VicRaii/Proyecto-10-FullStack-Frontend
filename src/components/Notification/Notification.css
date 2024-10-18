@@ -1,7 +1,7 @@
 /* Notification.css */
 .notification {
   position: fixed;
-  top: 20px;
+  top: 9svh;
   right: 20px;
   background-color: rgba(0, 0, 0, 0.8);
   color: white;

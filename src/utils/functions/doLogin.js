@@ -4,6 +4,10 @@ import { Champions } from "../../pages/Champions/Champions"; // Importa la pági
 
 export const doLogin = async (e) => {
   e.preventDefault();
+
+  // Verificar si ya hay un usuario logueado
+  const currentToken = localStorage.getItem("token");
+
   const [userNameInput, passwordInput] = e.target;
 
   const body = {
@@ -19,15 +23,34 @@ export const doLogin = async (e) => {
   });
 
   if (res.token) {
-    // Guardar el token en el localStorage
+    // Si ya hay un token guardado y el usuario es diferente, cerrar la sesión anterior
+    const previousUser = localStorage.getItem("userName");
+    if (currentToken && previousUser !== res.user.userName) {
+      // Mostrar notificación de que la sesión anterior se está cerrando
+      Notification(
+        "https://media.tenor.com/dUCnsmkTiD8AAAAj/league-of-legends.gif",
+        "Closing previous session..."
+      );
+
+      // Eliminar el token y la información del usuario anterior
+      localStorage.removeItem("token");
+      localStorage.removeItem("userName");
+
+      // Dar un pequeño retraso para la notificación antes de continuar
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+    }
+
+    // Guardar el nuevo token y el nuevo nombre de usuario
     localStorage.setItem("token", res.token);
+    localStorage.setItem("userName", res.user.userName);
+
     console.log("Login successful:", res);
 
     // Emitir el evento 'tokenChange' para notificar al header
     const tokenChangeEvent = new Event("tokenChange");
     window.dispatchEvent(tokenChangeEvent);
 
-    // Mostrar la notificación con el GIF
+    // Mostrar la notificación con el GIF de login exitoso
     Notification(
       "https://media.tenor.com/dUCnsmkTiD8AAAAj/league-of-legends.gif",
       "Login successful!"
@@ -40,11 +63,18 @@ export const doLogin = async (e) => {
       Champions(); // Llama a la función que renderiza la página de campeones
       window.history.pushState({}, "", "/champions"); // Cambia la URL sin recargar la página
     }, 1000);
-  } else {
+  } else if (res.message === "User or password incorrect") {
     // Mostrar notificación de error
     Notification(
       "https://media.tenor.com/EEB4at6dhLQAAAAj/good-morning.gif",
-      "Login Failed!"
+      "User or password incorrect"
+    );
+    console.log("Login failed:", res);
+  } else {
+    // Mostrar notificación de error genérica
+    Notification(
+      "https://media.tenor.com/EEB4at6dhLQAAAAj/good-morning.gif",
+      "Login failed!"
     );
     console.log("Login failed:", res);
   }

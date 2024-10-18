@@ -10,7 +10,8 @@
   padding: var(--p10-padding-m);
 }
 
-#favourites h1 {
+#favourites h1,
+.noFavs {
   color: var(--p10-button-bg-color);
   text-shadow: 2px 2px 0px rgba(64, 116, 181, 1),
     2px -2px 0px rgba(64, 116, 181, 1), -2px 2px 0px rgba(64, 116, 181, 1),
