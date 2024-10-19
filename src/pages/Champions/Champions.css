@@ -9,12 +9,21 @@
   padding-bottom: 70px;
 }
 
+.champions-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--p10-gap-l);
+  width: 100%;
+  margin-top: 20px;
+}
+
 .championsGrid {
   display: flex;
   flex-direction: column;
   width: 250px;
   height: 450px;
-  margin-top: 2svh;
+  margin-top: 8svh;
 }
 
 .card-img {

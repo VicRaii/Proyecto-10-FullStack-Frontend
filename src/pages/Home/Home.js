@@ -22,7 +22,7 @@ export const Home = () => {
 
   img.src = "/assets/LoLtitle.webp";
   loginContainer.classList.add("login-container");
-  link.textContent = "Register/Login";
+  link.textContent = "Sign Up/Login";
   link.href = "#";
   h3.textContent = "to see all the Champions.";
 

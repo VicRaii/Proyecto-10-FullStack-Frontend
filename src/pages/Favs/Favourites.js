@@ -21,7 +21,7 @@ export const Favourites = () => {
     const link = document.createElement("a");
 
     loginContainer.classList.add("login-container");
-    link.textContent = "Register/Login";
+    link.textContent = "Sign Up/Login";
     link.href = "#"; // Evitar redireccionamiento por defecto del navegador
     h3.textContent = "to be able to see all the Champions.";
 

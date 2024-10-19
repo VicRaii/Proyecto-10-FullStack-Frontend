@@ -1,0 +1,51 @@
+.champion-filters-container {
+  width: 100%;
+  height: 6svh;
+  position: absolute;
+  top: 5px;
+  display: flex;
+  justify-content: center;
+  gap: var(--p10-gap-l);
+}
+
+h3.filter {
+  color: var(--p10-button-bg-color);
+  text-shadow: 2px 2px 0px rgba(64, 116, 181, 1),
+    2px -2px 0px rgba(64, 116, 181, 1), -2px 2px 0px rgba(64, 116, 181, 1),
+    -2px -2px 0px rgba(64, 116, 181, 1), 2px 0px 0px rgba(64, 116, 181, 1),
+    0px 2px 0px rgba(64, 116, 181, 1), -2px 0px 0px rgba(64, 116, 181, 1),
+    0px -2px 0px rgba(64, 116, 181, 1);
+  font-size: var(--p10-font-size-m);
+  letter-spacing: 2px;
+}
+
+input.champion-filter-input {
+  width: 200px;
+  padding: 0 var(--p10-padding-s);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.537);
+  color: var(--p10-primary-color);
+  border: 3px solid var(--p10-button-bg-color);
+}
+
+select.champion-filter-input {
+  width: 10em;
+  padding: 0 var(--p10-padding-s);
+  border-radius: 8px;
+  background-color: var(--p10-button-bg-color);
+  color: var(--p10-primary-color);
+  border: 3px solid var(--p10-button-bg-color);
+  outline: 0;
+  appearance: none;
+  cursor: pointer;
+  background-image: url(/assets/caret.svg);
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 12px) center; /*Lo posicionamos a la derecha*/
+  padding-right: 24px;
+}
+
+.champion-filter-input::placeholder {
+  color: var(--p10-button-bg-color);
+  font-weight: 900;
+}
