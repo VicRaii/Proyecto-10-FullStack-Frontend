@@ -36,7 +36,6 @@
 }
 
 .page-buttons {
-  border: 1px solid #000;
   width: 200px;
   display: flex;
   justify-content: center;
@@ -48,7 +47,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #000;
   color: var(--p10-primary-color);
   font-weight: bold;
 }

@@ -1,5 +1,4 @@
 import "./Notification.css";
-// Notification.js
 
 export const Notification = (gifUrl, message) => {
   const notificationDiv = document.createElement("div");
@@ -14,7 +13,6 @@ export const Notification = (gifUrl, message) => {
 
   document.body.appendChild(notificationDiv);
 
-  // Ocultar la notificación después de 5 segundos
   setTimeout(() => {
     notificationDiv.remove();
   }, 3000);

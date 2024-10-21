@@ -10,11 +10,10 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   prevButton.onclick = () => {
     if (currentPage > 1) {
       onPageChange(currentPage - 1);
-      window.scrollTo({ top: 0, behavior: "smooth" }); // Desplazarse hacia arriba con suavidad
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
-  // Número de la página actual
   const pageInfo = document.createElement("span");
   pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
   pageInfo.className = "page-info";
@@ -25,12 +24,12 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   nextButton.onclick = () => {
     if (currentPage < totalPages) {
       onPageChange(currentPage + 1);
-      window.scrollTo({ top: 0, behavior: "smooth" }); // Desplazarse hacia arriba con suavidad
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
   paginationDiv.appendChild(prevButton);
-  paginationDiv.appendChild(pageInfo); // Añadimos la información de la página en el medio
+  paginationDiv.appendChild(pageInfo);
   paginationDiv.appendChild(nextButton);
 
   return paginationDiv;

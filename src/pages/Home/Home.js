@@ -1,6 +1,6 @@
 import { createPage } from "../../utils/functions/createPage";
 import { routes } from "../../utils/routes/routes";
-import { navigate } from "../../utils/functions/navigate"; // Asegúrate de importar la función navigate
+import { navigate } from "../../utils/functions/navigate";
 
 import "./Home.css";
 

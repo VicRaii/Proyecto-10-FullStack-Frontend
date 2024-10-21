@@ -1,4 +1,3 @@
-/* Notification.css */
 .notification {
   position: fixed;
   top: 9svh;
@@ -9,7 +8,7 @@
   border-radius: 8px;
   display: flex;
   align-items: center;
-  z-index: 2000000000000000000;
+  z-index: 20000000;
   animation: slide-in 0.5s ease-in-out;
 }
 

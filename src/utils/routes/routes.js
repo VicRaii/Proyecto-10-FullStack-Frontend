@@ -2,7 +2,7 @@ import { Champions } from "../../pages/Champions/Champions";
 import { Favourites } from "../../pages/Favs/Favourites";
 import { Home } from "../../pages/Home/Home";
 import { Login } from "../../pages/Login/Login";
-import { Logout } from "../../pages/Logout/Logout";
+import { Logout } from "../functions/Logout";
 
 export const routes = [
   {

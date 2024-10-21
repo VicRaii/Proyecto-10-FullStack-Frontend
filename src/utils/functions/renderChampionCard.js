@@ -1,10 +1,7 @@
-// utils/renderChampionCard.js
-
 export const renderChampionCard = (champion, addToFavourites, isFavourite) => {
   const championDiv = document.createElement("div");
   championDiv.className = "championsGrid";
 
-  // Card content
   championDiv.innerHTML = `
     <div class="card-img">
       <img id="${champion.name
@@ -26,7 +23,6 @@ export const renderChampionCard = (champion, addToFavourites, isFavourite) => {
     </div>
   `;
 
-  // Add event listener to the favourite icon
   const favouriteIcon = championDiv.querySelector(".likeIcon img");
 
   if (favouriteIcon) {

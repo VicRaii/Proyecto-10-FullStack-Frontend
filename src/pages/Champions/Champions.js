@@ -3,16 +3,16 @@ import { API } from "../../utils/API/API";
 import { createPage } from "../../utils/functions/createPage";
 import { Pagination } from "../../components/Pagination/Pagination";
 import { renderChampionCard } from "../../utils/functions/renderChampionCard";
-import { ChampionFilters } from "../../components/ChampionFilters/ChampionFilters"; // Importamos el componente de filtros
+import { ChampionFilters } from "../../components/ChampionFilters/ChampionFilters";
 import {
   addToFavourites,
   getFavourites,
 } from "../../utils/functions/addToFavourites";
+import { navigate } from "../../utils/functions/navigate";
+import { routes } from "../../utils/routes/routes";
 
 import "./Champions.css";
 import "../Champions/ChampionsPosition.css";
-import { navigate } from "../../utils/functions/navigate";
-import { routes } from "../../utils/routes/routes";
 
 export const Champions = async () => {
   const div = createPage("champions");
@@ -61,7 +61,6 @@ export const Champions = async () => {
 
     const totalPages = () => Math.ceil(filteredChampions.length / pageSize);
 
-    // Función para aplicar los filtros
     const applyFilters = ({ name, role }) => {
       filteredChampions = orderedChampions.filter((champion) => {
         const matchesName = champion.name.toLowerCase().includes(name);
@@ -69,21 +68,18 @@ export const Champions = async () => {
         return matchesName && matchesRole;
       });
 
-      currentPage = 1; // Reiniciar a la primera página
-      renderPage(currentPage); // Renderizar la página filtrada
+      currentPage = 1;
+      renderPage(currentPage);
     };
 
-    // Añadir el componente de filtros al principio del div (antes de los campeones)
     const filtersComponent = ChampionFilters({ onFilterChange: applyFilters });
     div.appendChild(filtersComponent);
 
-    // Renderizar la página de campeones
     const renderPage = (page) => {
       const start = (page - 1) * pageSize;
       const end = start + pageSize;
       const championsToShow = filteredChampions.slice(start, end);
 
-      // No sobrescribimos los filtros, solo el contenido de los campeones
       const championsContainer = document.createElement("div");
       championsContainer.classList.add("champions-container");
 
@@ -96,7 +92,6 @@ export const Champions = async () => {
         );
       });
 
-      // Añadir la paginación después del listado de campeones
       const paginationComponent = Pagination({
         currentPage,
         totalPages: totalPages(),
@@ -106,16 +101,15 @@ export const Champions = async () => {
         },
       });
 
-      // Limpiamos solo la parte de los campeones, manteniendo los filtros
       const existingChampionsContainer = div.querySelector(
         ".champions-container"
       );
       if (existingChampionsContainer) {
-        div.removeChild(existingChampionsContainer); // Remover la lista anterior de campeones
+        div.removeChild(existingChampionsContainer);
       }
 
-      div.appendChild(championsContainer); // Agregamos la nueva lista
-      div.appendChild(paginationComponent); // Agregamos la nueva paginación
+      div.appendChild(championsContainer);
+      div.appendChild(paginationComponent);
     };
 
     renderPage(currentPage);
