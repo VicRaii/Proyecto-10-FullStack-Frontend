@@ -13,41 +13,69 @@ export const doRegister = async (e) => {
     password: passwordInput.value,
   };
 
-  // Realiza la llamada a la API para el registro
-  const res = await API({
-    endpoint: "/users/register",
-    body,
-    method: "POST",
-  });
+  console.log(body);
 
-  // Guardar el token en el localStorage
-  localStorage.setItem("token", res.token);
-  console.log("Sign up successful:", res);
+  try {
+    // Realiza la llamada a la API para el registro
+    const res = await API({
+      endpoint: "/users/register",
+      body,
+      method: "POST",
+    });
 
-  // Emitir el evento 'tokenChange' para notificar al header
-  const tokenChangeEvent = new Event("tokenChange");
-  window.dispatchEvent(tokenChangeEvent);
+    // Log para ver la respuesta completa de la API
+    console.log("API response:", res.message);
 
-  if (res.token) {
-    // Mostrar la notificación con el GIF
-    Notification(
-      "https://media.tenor.com/dUCnsmkTiD8AAAAj/league-of-legends.gif",
-      "Welcome! Sign up successful!"
-    );
+    // Verificar si el registro fue exitoso
+    if (res._id) {
+      console.log("Sign up successful:", res);
 
-    // Redirigir manualmente a la página de campeones después de 2 segundos
-    setTimeout(() => {
-      const main = document.querySelector("main"); // Asegúrate de que "main" sea tu contenedor principal
-      main.innerHTML = ""; // Limpia el contenido actual
-      Champions(); // Llama a la función que renderiza la página de campeones
-      window.history.pushState({}, "", "/champions"); // Cambia la URL sin recargar la página
-    }, 1000);
-  } else {
-    // Mostrar notificación de error
+      // Mostrar la notificación de registro exitoso
+      Notification(
+        "https://media.tenor.com/dUCnsmkTiD8AAAAj/league-of-legends.gif",
+        "Welcome! Sign up successful!"
+      );
+
+      // Realizar login automáticamente después del registro
+      const loginBody = {
+        userName: userNameInput.value,
+        password: passwordInput.value,
+      };
+
+      const loginRes = await API({
+        endpoint: "/users/login",
+        body: loginBody,
+        method: "POST",
+      });
+
+      console.log(loginRes.message);
+      // Guardar el token en localStorage si el login es exitoso
+      if (loginRes.token) {
+        localStorage.setItem("token", loginRes.token);
+
+        // Emitir el evento 'tokenChange' para notificar al header
+        const tokenChangeEvent = new Event("tokenChange");
+        window.dispatchEvent(tokenChangeEvent);
+
+        // Redirigir manualmente a la página de campeones
+        setTimeout(() => {
+          const main = document.querySelector("main"); // Asegúrate de que "main" sea tu contenedor principal
+          main.innerHTML = ""; // Limpia el contenido actual
+          Champions(); // Llama a la función que renderiza la página de campeones
+          window.history.pushState({}, "", "/champions"); // Cambia la URL sin recargar la página
+        }, 1000);
+      } else {
+        throw new Error("Login failed after registration");
+      }
+    } else {
+      throw new Error("Sign up failed! Unknown error.");
+    }
+  } catch (error) {
+    // Mostrar la notificación de error
     Notification(
       "https://media.tenor.com/EEB4at6dhLQAAAAj/good-morning.gif",
-      "Sign up failed! Try again."
+      `Sign up or login failed: ${error.message}`
     );
-    console.log("Sign up failed:", res);
+    console.error("Sign up or login failed:", error);
   }
 };
