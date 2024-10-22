@@ -1,7 +1,3 @@
-import { API } from "../API/API";
-import { Notification } from "../../components/Notification/Notification";
-import { Champions } from "../../pages/Champions/Champions";
-
 export const doRegister = async (e) => {
   e.preventDefault();
 
@@ -21,6 +17,10 @@ export const doRegister = async (e) => {
       body,
       method: "POST",
     });
+
+    if (res.message) {
+      throw new Error(res.message);
+    }
 
     if (res._id) {
       console.log("Sign up successful:", res);
