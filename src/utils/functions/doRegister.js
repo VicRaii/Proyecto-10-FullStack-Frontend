@@ -1,3 +1,7 @@
+import { API } from "../API/API";
+import { Notification } from "../../components/Notification/Notification";
+import { Champions } from "../../pages/Champions/Champions";
+
 export const doRegister = async (e) => {
   e.preventDefault();
 
