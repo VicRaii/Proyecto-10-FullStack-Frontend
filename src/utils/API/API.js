@@ -1,5 +1,4 @@
-const URL =
-  "https://proyecto-10-full-stack-7cq8sqcm0-vicraiis-projects.vercel.app/?vercelToolbarCode=uSBvuJ9AF3v4vjs/api/v1/";
+const URL = "https://proyecto-10-full-stack.vercel.app/api/v1/";
 
 export const API = async ({
   endpoint,
