@@ -72,14 +72,42 @@
   cursor: pointer;
   transition: all 0.3s;
   filter: invert(1);
+  animation: 1.5s ease 0s infinite beat;
 }
 
 .likeIcon img:hover {
   transform: scale(1.1);
 }
 
+@keyframes beat {
+  0%,
+  50%,
+  100% {
+    transform: scale(1.2, 1.2);
+  }
+  30%,
+  80% {
+    transform: scale(0.95, 0.98);
+  }
+}
+
 #detach-button-host {
   display: none;
+}
+
+#errorMessage {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5em;
+  width: fit-content;
+  height: fit-content;
+  padding: var(--p10-padding-m);
+  border-radius: 5px;
+  position: absolute;
+  top: 200px;
+  color: #d8000c;
+  background-color: #ffd2d2;
+  border: 1px solid #d8000c;
 }
 
 @media (max-width: 950px) {

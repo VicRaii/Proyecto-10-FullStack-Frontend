@@ -13,6 +13,7 @@ export const RegisterForm = (form) => {
             labelText: "Repeat your password*",
             type: "password",
           })}   
+
       `;
   form.append(Button({ text: "Sign Up" }));
 };

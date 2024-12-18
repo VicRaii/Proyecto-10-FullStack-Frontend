@@ -56,7 +56,7 @@ export const doLogin = async (e) => {
   } else if (res.message === "User or password incorrect") {
     Notification(
       "https://media.tenor.com/EEB4at6dhLQAAAAj/good-morning.gif",
-      "User or password incorrect"
+      "User or Password incorrect"
     );
     console.log("Login failed:", res);
   } else {

@@ -13,10 +13,11 @@ import { routes } from "../../utils/routes/routes";
 
 import "./Champions.css";
 import "../Champions/ChampionsPosition.css";
+// Variable global para almacenar los datos de los campeones
+let cachedChampions = null;
 
 export const Champions = async () => {
   const div = createPage("champions");
-
   const token = localStorage.getItem("token");
 
   if (!token) {
@@ -46,15 +47,18 @@ export const Champions = async () => {
   div.appendChild(loadingComponent);
 
   try {
-    const Champions = await API({
-      endpoint: "/champions",
-      token,
-    });
+    // Si los datos ya están en caché, no hagas la llamada
+    if (!cachedChampions) {
+      const championsResponse = await API({
+        endpoint: "/champions",
+        token,
+      });
+      cachedChampions = championsResponse.sort((a, b) =>
+        a.name.localeCompare(b.name)
+      );
+    }
 
-    const orderedChampions = Champions.sort((a, b) =>
-      a.name.localeCompare(b.name)
-    );
-
+    const orderedChampions = cachedChampions;
     const pageSize = 15;
     let currentPage = 1;
     let filteredChampions = orderedChampions;
@@ -114,7 +118,14 @@ export const Champions = async () => {
 
     renderPage(currentPage);
   } catch (error) {
-    div.innerHTML = `<p>Error loading champions: ${error.message}</p>`;
+    div.innerHTML = `
+      <p id="errorMessage" style="
+       
+      ">
+        ⚠️ User unknown. <br />
+        Try to log in again.
+      </p>
+    `;
   } finally {
     loadingComponent.style.display = "none";
   }
