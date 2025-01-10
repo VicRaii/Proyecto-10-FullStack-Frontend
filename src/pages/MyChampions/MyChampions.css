@@ -1,0 +1,46 @@
+#user-champions {
+  height: 100svh;
+  width: 100%;
+  position: relative;
+}
+
+.myChampions-title,
+.no-champions-paragraph {
+  color: var(--p10-button-bg-color);
+  text-shadow: 2px 2px 0px rgba(64, 116, 181, 1),
+    2px -2px 0px rgba(64, 116, 181, 1), -2px 2px 0px rgba(64, 116, 181, 1),
+    -2px -2px 0px rgba(64, 116, 181, 1), 2px 0px 0px rgba(64, 116, 181, 1),
+    0px 2px 0px rgba(64, 116, 181, 1), -2px 0px 0px rgba(64, 116, 181, 1),
+    0px -2px 0px rgba(64, 116, 181, 1);
+  background-color: rgba(240, 248, 255, 0.356);
+  text-align: center;
+  font-size: var(--p10-font-size-xxl);
+  width: 100%;
+  height: 12svh;
+  position: absolute;
+}
+
+.no-champions-paragraph {
+  top: 85px;
+  font-size: var(--p10-font-size-xl);
+}
+
+.champion-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.champion-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  width: 200px;
+  background-color: #f9f9f9;
+}
+
+.champion-image {
+  width: 100%;
+  border-radius: 8px;
+}

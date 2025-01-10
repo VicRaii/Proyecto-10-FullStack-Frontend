@@ -25,7 +25,7 @@ header ul li {
 }
 
 header a {
-  font-size: var(--p10-font-size-m);
+  font-size: var(--p10-font-size-s);
   color: var(--p10-primary-color);
   font-weight: 600;
   padding: var(--p10-padding-xs);

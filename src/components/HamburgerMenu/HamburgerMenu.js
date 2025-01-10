@@ -1,4 +1,3 @@
-// HamburgerMenu.js
 import { navigate } from "../../utils/functions/navigate";
 import { routes } from "../../utils/routes/routes";
 import "./HamburgerMenu.css";
@@ -26,32 +25,23 @@ export const HamburgerMenu = () => {
 
   const renderMenuItems = () => {
     ul.innerHTML = "";
-
     const token = localStorage.getItem("token");
 
     for (const route of routes) {
+      // Omitir rutas que requieren autenticación si no hay token
+      if (route.requiresAuth && !token) continue;
+
       const li = document.createElement("li");
       const a = document.createElement("a");
-
-      a.addEventListener("click", (e) => {
-        navigate(e, route);
-        ul.classList.remove("open");
-        hamburgerButton.classList.remove("active");
-      });
 
       a.textContent = route.text;
       a.href = route.path;
 
-      if (route.text === "Logout" && !token) {
-        continue;
-      }
-
-      if (route.text === "Logout") {
+      if (route.text === "Logout" && token) {
         a.addEventListener("click", (e) => {
           e.preventDefault();
 
           localStorage.removeItem("token");
-
           const tokenChangeEvent = new Event("tokenChange");
           window.dispatchEvent(tokenChangeEvent);
 
@@ -60,10 +50,16 @@ export const HamburgerMenu = () => {
             navigate(e, loginRoute);
           }
         });
+      } else {
+        a.addEventListener("click", (e) => {
+          navigate(e, route);
+          ul.classList.remove("open");
+          hamburgerButton.classList.remove("active");
+        });
       }
 
       li.appendChild(a);
-      ul.append(li);
+      ul.appendChild(li);
     }
   };
 
