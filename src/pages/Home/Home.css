@@ -75,6 +75,15 @@
   outline-offset: 3px;
 }
 
+.welcome-container {
+  color: var(--p10-button-bg-color);
+  text-shadow: 2px 2px 0px rgba(64, 116, 181, 1),
+    2px -2px 0px rgba(64, 116, 181, 1), -2px 2px 0px rgba(64, 116, 181, 1),
+    -2px -2px 0px rgba(64, 116, 181, 1), 2px 0px 0px rgba(64, 116, 181, 1),
+    0px 2px 0px rgba(64, 116, 181, 1), -2px 0px 0px rgba(64, 116, 181, 1),
+    0px -2px 0px rgba(64, 116, 181, 1);
+}
+
 @media (max-width: 950px) {
   .login-container {
     margin-top: var(--p10-margin-l);

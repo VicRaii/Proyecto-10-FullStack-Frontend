@@ -1,74 +1,72 @@
-import { navigate } from "../../utils/functions/navigate";
-import { routes } from "../../utils/routes/routes";
-import "./HamburgerMenu.css";
+import { navigate } from '../../utils/functions/navigate'
+import { routes } from '../../utils/routes/routes'
+import './HamburgerMenu.css'
 
 export const HamburgerMenu = () => {
-  const nav = document.createElement("nav");
-  const ul = document.createElement("ul");
+  const nav = document.createElement('nav')
+  const ul = document.createElement('ul')
 
-  const hamburgerButton = document.createElement("button");
-  hamburgerButton.classList.add("hamburger-button");
+  const hamburgerButton = document.createElement('button')
+  hamburgerButton.classList.add('hamburger-button')
 
-  const bar1 = document.createElement("div");
-  bar1.classList.add("bar", "bar1");
-  const bar2 = document.createElement("div");
-  bar2.classList.add("bar", "bar2");
-  const bar3 = document.createElement("div");
-  bar3.classList.add("bar", "bar3");
+  const bar1 = document.createElement('div')
+  bar1.classList.add('bar', 'bar1')
+  const bar2 = document.createElement('div')
+  bar2.classList.add('bar', 'bar2')
+  const bar3 = document.createElement('div')
+  bar3.classList.add('bar', 'bar3')
 
-  hamburgerButton.append(bar1, bar2, bar3);
+  hamburgerButton.append(bar1, bar2, bar3)
 
-  hamburgerButton.addEventListener("click", () => {
-    ul.classList.toggle("open");
-    hamburgerButton.classList.toggle("active");
-  });
+  hamburgerButton.addEventListener('click', () => {
+    ul.classList.toggle('open')
+    hamburgerButton.classList.toggle('active')
+  })
 
   const renderMenuItems = () => {
-    ul.innerHTML = "";
-    const token = localStorage.getItem("token");
+    ul.innerHTML = '' // Limpiar el menú antes de renderizarlo
 
-    for (const route of routes) {
-      // Omitir rutas que requieren autenticación si no hay token
-      if (route.requiresAuth && !token) continue;
+    const token = localStorage.getItem('token')
 
-      const li = document.createElement("li");
-      const a = document.createElement("a");
-
-      a.textContent = route.text;
-      a.href = route.path;
-
-      if (route.text === "Logout" && token) {
-        a.addEventListener("click", (e) => {
-          e.preventDefault();
-
-          localStorage.removeItem("token");
-          const tokenChangeEvent = new Event("tokenChange");
-          window.dispatchEvent(tokenChangeEvent);
-
-          const loginRoute = routes.find((route) => route.path === "/login");
-          if (loginRoute) {
-            navigate(e, loginRoute);
-          }
-        });
-      } else {
-        a.addEventListener("click", (e) => {
-          navigate(e, route);
-          ul.classList.remove("open");
-          hamburgerButton.classList.remove("active");
-        });
+    routes.forEach((route) => {
+      // Mostrar rutas que requieren autenticación solo si hay token
+      if (route.requiresAuth && !token) {
+        return
       }
 
-      li.appendChild(a);
-      ul.appendChild(li);
-    }
-  };
+      // Ocultar rutas si el usuario ya está autenticado
+      if (route.hideWhenAuth && token) {
+        return
+      }
 
-  renderMenuItems();
+      const li = document.createElement('li')
+      const a = document.createElement('a')
+      a.textContent = route.text
+      a.href = route.path
 
-  window.addEventListener("tokenChange", () => {
-    renderMenuItems();
-  });
+      // Añadir eventos según el tipo de ruta
+      if (route.text === 'Logout') {
+        a.addEventListener('click', (e) => {
+          e.preventDefault()
+          localStorage.removeItem('token')
+          localStorage.removeItem('userName')
+          window.dispatchEvent(new Event('tokenChange'))
+        })
+      } else {
+        a.addEventListener('click', (e) => navigate(e, route))
+      }
 
-  nav.append(hamburgerButton, ul);
-  return nav;
-};
+      li.appendChild(a)
+      ul.appendChild(li)
+    })
+  }
+
+  renderMenuItems()
+
+  window.addEventListener('tokenChange', () => {
+    renderMenuItems()
+  })
+
+  nav.append(hamburgerButton, ul)
+  return nav
+}

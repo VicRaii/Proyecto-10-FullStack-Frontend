@@ -35,7 +35,7 @@ header a {
 }
 
 header a:before {
-  content: "";
+  content: '';
   background: var(--p10-button-bg-color);
   position: absolute;
   width: 100%;
