@@ -42,7 +42,7 @@
   padding: var(--p10-padding-s);
 }
 
-.login-container img {
+.login-container .home-image1 {
   min-width: 250px;
   max-width: 300px;
   margin-bottom: var(--p10-margin-m);
@@ -82,6 +82,17 @@
     -2px -2px 0px rgba(64, 116, 181, 1), 2px 0px 0px rgba(64, 116, 181, 1),
     0px 2px 0px rgba(64, 116, 181, 1), -2px 0px 0px rgba(64, 116, 181, 1),
     0px -2px 0px rgba(64, 116, 181, 1);
+}
+
+.login-container .home-image2 {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: #fff 5px solid;
+}
+
+.home-image2 {
+  background-size: cover;
 }
 
 @media (max-width: 950px) {

@@ -1,74 +1,76 @@
-import { API } from "../API/API";
-import { Notification } from "../../components/Notification/Notification";
-import { Champions } from "../../pages/Champions/Champions";
+import { API } from '../API/API'
+import { Notification } from '../../components/Notification/Notification'
+import { Champions } from '../../pages/Champions/Champions'
 
 export const doRegister = async (e) => {
-  e.preventDefault();
+  e.preventDefault()
 
-  const [userNameInput, emailInput, passwordInput] = e.target;
+  const [
+    userNameInput,
+    emailInput,
+    passwordInput,
+    repeatPasswordInput,
+    profilePictureInput
+  ] = e.target
 
-  const body = {
-    userName: userNameInput.value,
-    email: emailInput.value,
-    password: passwordInput.value,
-  };
+  if (
+    !userNameInput.value ||
+    !emailInput.value ||
+    !passwordInput.value ||
+    !repeatPasswordInput.value ||
+    !profilePictureInput.files[0]
+  ) {
+    Notification(
+      'https://media.tenor.com/EEB4at6dhLQAAAAj/good-morning.gif',
+      'All fields are required'
+    )
+    return
+  }
 
-  console.log(body);
+  const formData = new FormData()
+  formData.append('userName', userNameInput.value)
+  formData.append('email', emailInput.value)
+  formData.append('password', passwordInput.value)
+  formData.append('repeatPassword', repeatPasswordInput.value)
+  formData.append('profilePicture', profilePictureInput.files[0])
 
   try {
     const res = await API({
-      endpoint: "/users/register",
-      body,
-      method: "POST",
-    });
+      endpoint: '/users/register',
+      body: formData,
+      method: 'POST',
+      isJSON: false
+    })
 
     if (res.message) {
-      throw new Error(res.message);
+      throw new Error(res.message)
     }
 
     if (res._id) {
-      console.log("Sign up successful:", res);
-
       Notification(
-        "https://media.tenor.com/dUCnsmkTiD8AAAAj/league-of-legends.gif",
-        "Welcome! Sign up successful!"
-      );
+        'https://media.tenor.com/dUCnsmkTiD8AAAAj/league-of-legends.gif',
+        'Welcome! Sign up successful!'
+      )
 
-      const loginBody = {
-        userName: userNameInput.value,
-        password: passwordInput.value,
-      };
+      localStorage.setItem('profilePicture', res.profilePicture)
 
-      const loginRes = await API({
-        endpoint: "/users/login",
-        body: loginBody,
-        method: "POST",
-      });
+      const tokenChangeEvent = new Event('tokenChange')
+      window.dispatchEvent(tokenChangeEvent)
 
-      console.log(loginRes.message);
-      if (loginRes.token) {
-        localStorage.setItem("token", loginRes.token);
-
-        const tokenChangeEvent = new Event("tokenChange");
-        window.dispatchEvent(tokenChangeEvent);
-
-        setTimeout(() => {
-          const main = document.querySelector("main");
-          main.innerHTML = "";
-          Champions();
-          window.history.pushState({}, "", "/champions");
-        }, 1000);
-      } else {
-        throw new Error("Login failed after registration");
-      }
+      setTimeout(() => {
+        const main = document.querySelector('main')
+        main.innerHTML = ''
+        Champions()
+        window.history.pushState({}, '', '/champions')
+      }, 1000)
     } else {
-      throw new Error("Sign up failed! Unknown error.");
+      throw new Error('Sign up failed! Unknown error.')
     }
   } catch (error) {
     Notification(
-      "https://media.tenor.com/EEB4at6dhLQAAAAj/good-morning.gif",
+      'https://media.tenor.com/EEB4at6dhLQAAAAj/good-morning.gif',
       `Sign up or login failed: ${error.message}`
-    );
-    console.error("Sign up or login failed:", error);
+    )
+    console.error('Sign up or login failed:', error)
   }
-};
+}

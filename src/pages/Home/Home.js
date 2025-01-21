@@ -21,6 +21,8 @@ export const Home = () => {
   const link = document.createElement('a')
 
   img.src = '/assets/LoLtitle.webp'
+  img.alt = 'League of Legends Title'
+  img.classList.add('home-image1')
   loginContainer.classList.add('login-container')
   link.textContent = 'Sign Up/Login'
   link.href = '#'
@@ -38,12 +40,13 @@ export const Home = () => {
 
   const updateLoginContainer = () => {
     const token = localStorage.getItem('token')
-    if (token) {
+    const userName = localStorage.getItem('userName')
+    const profilePicture = localStorage.getItem('profilePicture')
+    if (token && profilePicture) {
       loginContainer.innerHTML = `
-        <img src="/assets/LoLtitle.webp" alt="LoL Title">
+        <img src="${profilePicture}" alt="Profile Picture" class="home-image2">
         <div class="welcome-container">
-          <h3>Welcome Summoner!</h3>
-        
+          <h3>Welcome Summoner ${userName}</h3>
         </div>
       `
     } else {
