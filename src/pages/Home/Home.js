@@ -1,7 +1,7 @@
 import { createPage } from '../../utils/functions/createPage'
 import { routes } from '../../utils/routes/routes'
 import { navigate } from '../../utils/functions/navigate'
-
+import { ProfileModal } from '../../components/ProfileModal/ProfileModal'
 import './Home.css'
 
 export const Home = () => {
@@ -22,7 +22,6 @@ export const Home = () => {
 
   img.src = '/assets/LoLtitle.webp'
   img.alt = 'League of Legends Title'
-  img.classList.add('home-image1')
   loginContainer.classList.add('login-container')
   link.textContent = 'Sign Up/Login'
   link.href = '#'
@@ -44,11 +43,15 @@ export const Home = () => {
     const profilePicture = localStorage.getItem('profilePicture')
     if (token && profilePicture) {
       loginContainer.innerHTML = `
-        <img src="${profilePicture}" alt="Profile Picture" class="home-image2">
+        <img src="${profilePicture}" alt="Profile Picture" class="profile-picture">
         <div class="welcome-container">
           <h3>Welcome Summoner ${userName}</h3>
         </div>
       `
+      const profileImg = loginContainer.querySelector('.profile-picture')
+      profileImg.addEventListener('click', () => {
+        ProfileModal(userName, localStorage.getItem('email'), profilePicture)
+      })
     } else {
       loginContainer.innerHTML = ''
       loginContainer.append(img, link, h3)

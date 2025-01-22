@@ -9,6 +9,22 @@
   font-size: var(--p10-font-size-m);
 }
 
+.field-form label {
+  width: 50%;
+  letter-spacing: 1px;
+  font-size: var(--p10-font-size-m);
+  border-radius: 10px;
+  padding: var(--p10-padding-xs);
+  text-align: center;
+  color: var(--p10-button-bg-color);
+  text-shadow: 2px 2px 0px rgba(64, 116, 181, 1),
+    2px -2px 0px rgba(64, 116, 181, 1), -2px 2px 0px rgba(64, 116, 181, 1),
+    -2px -2px 0px rgba(64, 116, 181, 1), 2px 0px 0px rgba(64, 116, 181, 1),
+    0px 2px 0px rgba(64, 116, 181, 1), -2px 0px 0px rgba(64, 116, 181, 1),
+    0px -2px 0px rgba(64, 116, 181, 1);
+  background-color: rgba(240, 248, 255, 0.736);
+}
+
 .field-form > input {
   text-align: start;
   width: 80%;
