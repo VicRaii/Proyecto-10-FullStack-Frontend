@@ -1,5 +1,4 @@
 import { Button } from '../Button/Button'
-import { FieldForm } from '../FieldForm/FieldForm'
 import { API } from '../../utils/API/API'
 import { Notification } from '../Notification/Notification'
 import './ProfileModal.css'
@@ -92,4 +91,6 @@ export const ProfileModal = (userName, email, profilePicture) => {
   modalContent.appendChild(closeButton) // Asegúrate de que el botón de cierre esté dentro del modalContent
   modal.appendChild(modalContent)
   document.body.appendChild(modal)
+
+  //! AHORA HAN DESAPARECIDO LOS MENSAJES DE NOTIFICACIÓN
 }

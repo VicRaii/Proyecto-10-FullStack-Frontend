@@ -1,21 +1,23 @@
-import "./Notification.css";
+import '../../components/Notification/Notification.css'
 
-export const Notification = (gifUrl, message) => {
-  const notificationDiv = document.createElement("div");
-  notificationDiv.className = "notification";
+export const Notification = (imageUrl, message) => {
+  console.log('Notification function called') // Registro de depuración
+  const notification = document.createElement('div')
+  notification.className = 'notification'
 
-  notificationDiv.innerHTML = `
-      <div class="notification-content">
-        <img src="${gifUrl}" alt="Success GIF" />
-        <p>${message}</p>
-      </div>
-    `;
+  const img = document.createElement('img')
+  img.src = imageUrl
+  img.alt = 'Notification Image'
 
-  document.body.appendChild(notificationDiv);
+  const text = document.createElement('p')
+  text.textContent = message
+
+  notification.appendChild(img)
+  notification.appendChild(text)
+
+  document.body.appendChild(notification)
 
   setTimeout(() => {
-    notificationDiv.remove();
-  }, 3000);
-
-  return notificationDiv;
-};
+    notification.remove()
+  }, 3000)
+}

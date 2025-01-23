@@ -42,17 +42,15 @@ export const doRegister = async (e) => {
       isJSON: false
     })
 
-    if (res.message) {
-      throw new Error(res.message)
-    }
-
-    if (res._id) {
+    if (res.message && res.token) {
       Notification(
         'https://media.tenor.com/dUCnsmkTiD8AAAAj/league-of-legends.gif',
         'Welcome! Sign up successful!'
       )
 
-      localStorage.setItem('profilePicture', res.profilePicture)
+      localStorage.setItem('token', res.token)
+      localStorage.setItem('userName', res.user.userName)
+      localStorage.setItem('profilePicture', res.user.profilePicture)
 
       const tokenChangeEvent = new Event('tokenChange')
       window.dispatchEvent(tokenChangeEvent)
@@ -64,7 +62,7 @@ export const doRegister = async (e) => {
         window.history.pushState({}, '', '/champions')
       }, 1000)
     } else {
-      throw new Error('Sign up failed! Unknown error.')
+      throw new Error(res.message || 'Sign up failed! Unknown error.')
     }
   } catch (error) {
     Notification(
