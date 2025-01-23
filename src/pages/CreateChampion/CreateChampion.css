@@ -1,0 +1,26 @@
+.create-champion-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.field-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.main-button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.main-button:hover {
+  background-color: #0056b3;
+}

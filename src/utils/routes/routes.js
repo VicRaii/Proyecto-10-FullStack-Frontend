@@ -1,4 +1,5 @@
 import { Champions } from '../../pages/Champions/Champions'
+import { CreateChampion } from '../../pages/CreateChampion/CreateChampion'
 import { Favourites } from '../../pages/Favs/Favourites'
 import { Home } from '../../pages/Home/Home'
 import { Login } from '../../pages/Login/Login'
@@ -20,6 +21,12 @@ export const routes = [
     text: 'Favourites',
     page: Favourites,
     requiresAuth: true // Mostrar solo si el usuario está autenticado
+  },
+  {
+    path: '/create-champion',
+    text: 'Create Champion',
+    page: CreateChampion,
+    requiresAuth: true
   },
   {
     path: '/login',
