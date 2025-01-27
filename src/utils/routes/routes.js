@@ -3,7 +3,7 @@ import { CreateChampion } from '../../pages/CreateChampion/CreateChampion'
 import { Favourites } from '../../pages/Favs/Favourites'
 import { Home } from '../../pages/Home/Home'
 import { Login } from '../../pages/Login/Login'
-import { Logout } from '../functions/Logout'
+import { Logout } from '../../components/Logout/Logout'
 
 export const routes = [
   {

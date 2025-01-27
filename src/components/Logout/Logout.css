@@ -1,0 +1,44 @@
+#logout {
+  width: 100%;
+  min-height: 92svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#logout h1 {
+  color: var(--p10-button-bg-color);
+  text-shadow: 2px 2px 0px rgba(64, 116, 181, 1),
+    2px -2px 0px rgba(64, 116, 181, 1), -2px 2px 0px rgba(64, 116, 181, 1),
+    -2px -2px 0px rgba(64, 116, 181, 1), 2px 0px 0px rgba(64, 116, 181, 1),
+    0px 2px 0px rgba(64, 116, 181, 1), -2px 0px 0px rgba(64, 116, 181, 1),
+    0px -2px 0px rgba(64, 116, 181, 1);
+  background-color: rgba(240, 248, 255, 0.356);
+
+  border-right: 2px solid rgba(255, 255, 255, 0.75);
+  font-size: 3em;
+  letter-spacing: 1px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typewriter 3s steps(50) 1s 1 normal both,
+    blinkingCursor 500ms steps(50) normal;
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blinkingCursor {
+  from {
+    border-right-color: rgba(255, 255, 255, 0.75);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}

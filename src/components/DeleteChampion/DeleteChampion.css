@@ -1,0 +1,83 @@
+.delete-icon {
+  position: absolute;
+  top: 40px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #dc3545;
+}
+
+.delete-icon:hover {
+  color: #c82333;
+}
+#container {
+  width: 250px;
+  height: fit-content;
+  position: absolute;
+  margin-top: var(--p10-margin-m);
+}
+
+.container-inner {
+  background: #a4363e;
+  padding: var(--p10-padding-m);
+  border-radius: 30px;
+  box-shadow: 5px 6px 0px -2px #620d15, -6px 5px 0px -2px #620d15,
+    0px -2px 0px 2px #ee9191, 0px 10px 0px 0px #610c14,
+    0px -10px 0px 1px #e66565, 0px 0px 180px 90px #0d2f66;
+  width: 100%;
+}
+
+.content {
+  background: radial-gradient(#fffbf3, #ffe19e);
+  box-sizing: border-box;
+  border-radius: 20px 18px 20px 18px;
+  box-shadow: 0px 0px 0px 6px #5e1e21, 0px 0px 8px 6px #84222b,
+    inset 0px 0px 15px 0px #614506, 6px 6px 1px 1px #e66565,
+    -6px 6px 1px 1px #e66565;
+  text-align: center;
+}
+
+.content p {
+  font-size: var(--p10-font-size-m);
+  padding: var(--p10-padding-s);
+  color: #461417;
+}
+
+.buttons {
+  margin-top: var(--p10-margin-m);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.buttons button {
+  padding: var(--p10-padding-s) var(--p10-padding-m);
+  flex: 1;
+  border-radius: 20px;
+  border: 2px solid #49181e;
+  font-family: var(--p10-font-family-LoL);
+  color: #fff;
+  font-size: var(--p10-font-size-m);
+  text-shadow: 1px 2px 3px #000000;
+  cursor: pointer;
+}
+
+.buttons .confirm {
+  background: linear-gradient(#ced869, #536d1b);
+  box-shadow: 0px 0px 0px 4px #7e1522, 0px 2px 0px 3px #e66565;
+}
+
+.buttons .confirm:hover {
+  box-shadow: 0px 0px 0px 4px #7e1522, 0px 2px 0px 3px #e66565,
+    inset 2px 2px 10px 3px #4e6217;
+}
+
+.buttons .cancel {
+  background: linear-gradient(#ea7079, #891a1a);
+  box-shadow: 0px 0px 0px 4px #7e1522, 0px 2px 0px 3px #e66565;
+}
+
+.buttons .cancel:hover {
+  box-shadow: 0px 0px 0px 4px #7e1522, 0px 2px 0px 3px #e66565,
+    inset 2px 2px 10px 3px #822828;
+}

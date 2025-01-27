@@ -75,7 +75,9 @@ export const EditChampion = (champion, position) => {
           'https://media.tenor.com/dUCnsmkTiD8AAAAj/league-of-legends.gif',
           'Champion updated successfully!'
         )
-        window.location.reload()
+        setTimeout(() => {
+          window.location.reload()
+        }, 2000)
       }
     } catch (error) {
       Notification(

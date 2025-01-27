@@ -1,5 +1,6 @@
 import { navigate } from '../../utils/functions/navigate'
 import { routes } from '../../utils/routes/routes'
+import { Logout } from '../Logout/Logout' // Importar la función Logout
 import './HamburgerMenu.css'
 
 export const HamburgerMenu = () => {
@@ -48,9 +49,7 @@ export const HamburgerMenu = () => {
       if (route.text === 'Logout') {
         a.addEventListener('click', (e) => {
           e.preventDefault()
-          localStorage.removeItem('token')
-          localStorage.removeItem('userName')
-          window.dispatchEvent(new Event('tokenChange'))
+          Logout() // Llamar a la función Logout
         })
       } else {
         a.addEventListener('click', (e) => navigate(e, route))

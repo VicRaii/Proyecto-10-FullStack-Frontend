@@ -61,10 +61,9 @@ export const CreateChampion = () => {
           'https://media.tenor.com/dUCnsmkTiD8AAAAj/league-of-legends.gif',
           'Champion created successfully!'
         )
-        navigate(
-          null,
-          routes.find((route) => route.path === '/champions')
-        )
+        setTimeout(() => {
+          window.location.reload()
+        }, 2000)
       }
     } catch (error) {
       Notification(
