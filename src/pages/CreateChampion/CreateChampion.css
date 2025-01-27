@@ -1,9 +1,13 @@
 .create-champion-form {
+  margin: 0 auto;
+  margin-top: var(--p10-margin-xl);
+  padding: var(--p10-padding-s);
   display: flex;
   flex-direction: column;
   gap: 10px;
   max-width: 400px;
-  margin: 0 auto;
+  border: 3px solid #000;
+  border-radius: 10px;
 }
 
 .field-form {

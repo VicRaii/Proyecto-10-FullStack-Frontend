@@ -1,0 +1,54 @@
+.edit-champion {
+  width: 250px;
+  height: 450px;
+  position: absolute; /* Cambiar de fixed a absolute */
+  background-color: var(--p10-tertiary-color);
+  opacity: 0.7;
+  padding: var(--p10-font-size-xs);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.edit-champion-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--p10-gap-xs);
+}
+
+.field-form {
+  display: flex;
+  flex-direction: column;
+  padding: var(--p10-padding-xs);
+  gap: var(--p10-gap-xs);
+  border: 2px solid var(--p10-button-bg-color);
+}
+
+.edit-champion .field-form > label {
+  font-size: var(--p10-font-size-s);
+  letter-spacing: 2px;
+  border-bottom: 2px solid var(--p10-secondary-color);
+}
+
+.edit-champion .field-form > input {
+  width: 95%;
+  padding: var(--p10-padding-xs);
+  border-bottom: 2px solid var(--p10-secondary-color);
+}
+
+.main-button:hover {
+  background-color: #0056b3;
+}
+
+.edit-champion .close-button {
+  color: var(--p10-primary-color);
+  border: none;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #e82d2d;
+}
+
+.championsGrid.editing .edit-icon {
+  display: none; /* Ocultar el botón de editar cuando la clase editing esté presente */
+}

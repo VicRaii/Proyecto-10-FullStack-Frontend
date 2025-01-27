@@ -45,5 +45,3 @@ export const Logout = () => {
 
   return div
 }
-
-//! REVISAR MAS ANTES D EENTREGAR PORQUE NO SE MUESTRA LA NOTIFICACIÓN CUANDO SE HACE LOGOUT
