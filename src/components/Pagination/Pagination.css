@@ -62,5 +62,6 @@ button:disabled {
 
 .page-info {
   color: var(--p10-button-bg-color);
-  text-shadow: 1px 1px 1px #000;
+  text-shadow: 2px 2px 1px var(--p10-primary-color);
+  font-weight: bolder;
 }

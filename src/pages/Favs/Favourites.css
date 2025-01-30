@@ -95,3 +95,23 @@
 #favourites .likeIcon img:hover {
   transform: scale(1.1);
 }
+
+@media (max-width: 700px) {
+  #favourites h1,
+  .noFavs {
+    font-size: var(--p10-font-size-xl);
+    height: 8svh;
+  }
+  #favourites .championsGrid {
+    width: 200px;
+    height: 400px;
+  }
+  #favourites .card-footer h3,
+  #favourites .card-footer h4 {
+    font-size: var(--p10-font-size-xs);
+  }
+
+  #favourites .likeIcon {
+    width: 25px;
+  }
+}

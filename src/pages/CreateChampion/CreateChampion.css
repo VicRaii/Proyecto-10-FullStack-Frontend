@@ -6,8 +6,20 @@
   flex-direction: column;
   gap: 10px;
   max-width: 400px;
-  border: 3px solid #000;
+  border: 3px solid var(--p10-button-bg-color);
   border-radius: 10px;
+}
+
+.create-champion-form > h2 {
+  color: var(--p10-button-bg-color);
+  text-shadow: 2px 2px 0px rgba(64, 116, 181, 1),
+    2px -2px 0px rgba(64, 116, 181, 1), -2px 2px 0px rgba(64, 116, 181, 1),
+    -2px -2px 0px rgba(64, 116, 181, 1), 2px 0px 0px rgba(64, 116, 181, 1),
+    0px 2px 0px rgba(64, 116, 181, 1), -2px 0px 0px rgba(64, 116, 181, 1),
+    0px -2px 0px rgba(64, 116, 181, 1);
+  background-color: rgba(240, 248, 255, 0.709);
+  text-align: center;
+  border-radius: 10px 10px 0 0;
 }
 
 .field-form {
@@ -16,15 +28,42 @@
   gap: 5px;
 }
 
-.main-button {
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
+.create-champion-form .field-form > label {
+  font-size: var(--p10-font-size-m);
+  letter-spacing: 2px;
+}
+
+#role {
+  width: 10em;
+  padding: var(--p10-padding-s);
+  border-radius: 8px;
+  background-color: var(--p10-button-bg-color);
+  color: var(--p10-primary-color);
+  border: 3px solid var(--p10-tertiary-color);
+  outline: 0;
+  appearance: none;
   cursor: pointer;
 }
 
-.main-button:hover {
-  background-color: #0056b3;
+.create-champion-form .main-button {
+  border: none;
+  border-radius: 0 0 10px 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 450px) {
+  .create-champion-form {
+    width: 80%;
+  }
+  .create-champion-form > h2 {
+    font-size: var(--p10-font-size-m);
+  }
+  .create-champion-form .field-form > label {
+    font-size: var(--p10-font-size-s);
+  }
+  #role {
+    width: 8em;
+    padding: var(--p10-padding-xs);
+    font-size: var(--p10-font-size-xs);
+  }
 }

@@ -11,6 +11,12 @@ header {
 header nav {
   width: 100%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 header ul {
@@ -32,6 +38,7 @@ header ul li {
 
 header a {
   font-size: var(--p10-font-size-s);
+  letter-spacing: 2px;
   color: var(--p10-primary-color);
   font-weight: 600;
   padding: var(--p10-padding-xs);
@@ -52,6 +59,7 @@ header a:before {
   animation: 0.8s no-hover;
   animation-fill-mode: forwards;
   z-index: -1;
+  border-radius: 10px;
 }
 
 header a:hover:before,
@@ -100,20 +108,23 @@ header a:focus:before {
 
 @media (max-width: 950px) {
   header ul {
-    height: 40svh;
+    height: fit-content;
     display: none;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     position: absolute;
     top: 0;
-    left: 7%;
-    width: 90%;
-    background-color: var(--p10-secondary-color);
+    background-color: var(--p10-primary-color);
     gap: 15px;
     z-index: 9999;
   }
+  header ul li {
+    padding: var(--p10-padding-s);
+  }
   header a {
+    border-radius: 10px;
     font-size: var(--p10-font-size-s);
+    border-bottom: 2px solid var(--p10-button-bg-color);
   }
 }

@@ -1,7 +1,6 @@
 import '../../components/Notification/Notification.css'
 
 export const Notification = (imageUrl, message) => {
-  console.log('Notification function called') // Registro de depuración
   const notification = document.createElement('div')
   notification.className = 'notification'
 

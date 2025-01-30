@@ -88,9 +88,7 @@ export const ProfileModal = (userName, email, profilePicture) => {
   }
 
   modalContent.append(saveButton)
-  modalContent.appendChild(closeButton) // Asegúrate de que el botón de cierre esté dentro del modalContent
+  modalContent.appendChild(closeButton)
   modal.appendChild(modalContent)
   document.body.appendChild(modal)
-
-  //! AHORA HAN DESAPARECIDO LOS MENSAJES DE NOTIFICACIÓN
 }

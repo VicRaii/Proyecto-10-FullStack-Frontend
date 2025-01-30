@@ -1,11 +1,14 @@
 .champion-filters-container {
-  width: 100%;
+  width: 80%;
   height: 6svh;
+  padding: var(--p10-padding-s);
   position: absolute;
   top: 5px;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: var(--p10-gap-l);
+  border: 4px ridge var(--p10-button-bg-color);
 }
 
 h3.filter {
@@ -21,31 +24,55 @@ h3.filter {
 
 input.champion-filter-input {
   width: 200px;
-  padding: 0 var(--p10-padding-s);
+  padding: var(--p10-padding-xs);
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.537);
+  background-color: rgba(255, 255, 255, 0.887);
   color: var(--p10-primary-color);
   border: 3px solid var(--p10-button-bg-color);
 }
 
 select.champion-filter-input {
-  width: 10em;
+  width: 7em;
   padding: 0 var(--p10-padding-s);
   border-radius: 8px;
   background-color: var(--p10-button-bg-color);
   color: var(--p10-primary-color);
-  border: 3px solid var(--p10-button-bg-color);
+  border: 3px solid var(--p10-tertiary-color);
   outline: 0;
   appearance: none;
   cursor: pointer;
-  background-image: url(/assets/caret.svg);
-  background-size: 18px;
-  background-repeat: no-repeat;
-  background-position: calc(100% - 12px) center; /*Lo posicionamos a la derecha*/
-  padding-right: 24px;
 }
 
 .champion-filter-input::placeholder {
   color: var(--p10-button-bg-color);
   font-weight: 900;
+}
+
+@media (max-width: 700px) {
+  h3.filter {
+    font-size: var(--p10-font-size-s);
+  }
+
+  input.champion-filter-input {
+    width: 200px;
+  }
+
+  select.champion-filter-input {
+    width: 4em;
+  }
+}
+
+@media (max-width: 500px) {
+  h3.filter {
+    font-size: var(--p10-font-size-xs);
+  }
+  input.champion-filter-input {
+    width: 100px;
+    font-size: var(--p10-font-size-xs);
+  }
+
+  select.champion-filter-input {
+    width: 4em;
+    font-size: var(--p10-font-size-xs);
+  }
 }

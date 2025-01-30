@@ -1,7 +1,7 @@
 .edit-champion {
   width: 250px;
   height: 450px;
-  position: absolute; /* Cambiar de fixed a absolute */
+  position: absolute;
   background-color: var(--p10-tertiary-color);
   opacity: 0.7;
   padding: var(--p10-font-size-xs);
@@ -50,5 +50,5 @@
 }
 
 .championsGrid.editing .edit-icon {
-  display: none; /* Ocultar el botón de editar cuando la clase editing esté presente */
+  display: none;
 }

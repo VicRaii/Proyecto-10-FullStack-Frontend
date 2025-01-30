@@ -3,7 +3,7 @@ import { CreateChampion } from '../../pages/CreateChampion/CreateChampion'
 import { Favourites } from '../../pages/Favs/Favourites'
 import { Home } from '../../pages/Home/Home'
 import { Login } from '../../pages/Login/Login'
-import { Logout } from '../../components/Logout/Logout'
+import { Logout } from '../functions/Logout'
 
 export const routes = [
   {
@@ -20,7 +20,7 @@ export const routes = [
     path: '/favourites',
     text: 'Favourites',
     page: Favourites,
-    requiresAuth: true // Mostrar solo si el usuario está autenticado
+    requiresAuth: true
   },
   {
     path: '/create-champion',
@@ -32,12 +32,12 @@ export const routes = [
     path: '/login',
     text: 'Sign Up / Login',
     page: Login,
-    hideWhenAuth: true // Ocultar si el usuario está autenticado
+    hideWhenAuth: true
   },
   {
     path: '/logout',
     text: 'Logout',
     page: Logout,
-    requiresAuth: true // Mostrar solo si el usuario está autenticado
+    requiresAuth: true
   }
 ]

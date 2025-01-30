@@ -1,5 +1,5 @@
-// const URL = "https://proyecto-10-full-stack.vercel.app/api/v1";
-const URL = 'http://localhost:3000/api/v1' //! BORRAR AL TERMINAR PRUEBAS
+const URL = 'https://proyecto-10-full-stack.vercel.app/api/v1'
+// const URL = 'http://localhost:3000/api/v1' //! Server de pruebas
 
 export const API = async ({
   endpoint,

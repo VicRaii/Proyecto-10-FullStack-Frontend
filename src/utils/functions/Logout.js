@@ -1,14 +1,9 @@
-import { Notification } from '../Notification/Notification'
-import { createPage } from '../../utils/functions/createPage'
-import './Logout.css'
+import { Notification } from '../../components/Notification/Notification'
+import { createPage } from './createPage'
 
 export const Logout = () => {
   const div = createPage('logout')
-  div.innerHTML = `
-    <h1>
-      GG Well Played
-    </h1>
-  `
+  div.innerHTML = ``
 
   localStorage.removeItem('token')
   localStorage.removeItem('userName')
@@ -21,7 +16,7 @@ export const Logout = () => {
 
   setTimeout(() => {
     window.location.reload()
-  }, 3000)
+  }, 2000)
 
   return div
 }

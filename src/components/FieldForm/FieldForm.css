@@ -1,3 +1,7 @@
+.login-form {
+  width: 100%;
+}
+
 .field-form {
   width: 100%;
   display: flex;
@@ -38,4 +42,16 @@
 .field-form > input::placeholder {
   color: var(--p10-button-bg-color);
   font-weight: 900;
+}
+
+@media (max-width: 600px) {
+  #login .login-form,
+  #login .register-form {
+    width: 80%;
+  }
+  #login .register-form label {
+    font-size: var(--p10-font-size-s);
+    letter-spacing: 2px;
+    width: 100%;
+  }
 }

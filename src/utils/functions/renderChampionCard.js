@@ -19,8 +19,11 @@ export const renderChampionCard = (
         .replace('.', '-')
         .replace('&', '-')}" src="${champion.img}" 
         alt="${champion.name} image not found"/>
-      <span class="edit-icon">&#9998;</span> <!-- Ícono de edición (lápiz) -->
-      <span class="delete-icon">&#10060;</span> <!-- Ícono de borrar (cruz) -->
+      <span class="edit-icon modify-icon" >
+       <img src="/assets/edit-icon.png" alt="edit icon " /></span>
+      <span class="delete-icon modify-icon" >
+       <img src="/assets/delete-icon.png" alt="delete icon" /></span>
+      
     </div>
     <div class="card-footer">
       <h3>${champion.name}</h3>
@@ -49,7 +52,7 @@ export const renderChampionCard = (
       if (existingForm) {
         existingForm.remove()
       }
-      championDiv.classList.add('editing') // Agregar clase para ocultar el botón de editar
+      championDiv.classList.add('editing')
       const rect = championDiv.getBoundingClientRect()
       const position = {
         top: rect.top + window.scrollY,
@@ -58,7 +61,6 @@ export const renderChampionCard = (
       const editForm = EditChampion(champion, position, container)
       document.body.appendChild(editForm)
 
-      // Agregar evento para eliminar la clase cuando se cierre el formulario
       const closeButton = editForm.querySelector('.close-button')
       closeButton.addEventListener('click', () => {
         championDiv.classList.remove('editing')

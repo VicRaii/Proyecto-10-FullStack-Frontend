@@ -1,8 +1,7 @@
 import { API } from '../../utils/API/API'
 import { createPage } from '../../utils/functions/createPage'
 import { Notification } from '../../components/Notification/Notification'
-import { navigate } from '../../utils/functions/navigate'
-import { routes } from '../../utils/routes/routes'
+// import { getChampions, saveChampions } from '../../utils/functions/getChampions'
 
 import './CreateChampion.css'
 
@@ -41,6 +40,7 @@ export const CreateChampion = () => {
 
     const formData = new FormData(form)
     const token = localStorage.getItem('token')
+    // const userName = localStorage.getItem('userName') // Obtener el nombre de usuario del localStorage
 
     try {
       const res = await API({
@@ -61,6 +61,11 @@ export const CreateChampion = () => {
           'https://media.tenor.com/dUCnsmkTiD8AAAAj/league-of-legends.gif',
           'Champion created successfully!'
         )
+
+        // const champions = getChampions(userName)
+        // champions.push(res)
+        // saveChampions(userName, champions)
+
         setTimeout(() => {
           window.location.reload()
         }, 2000)

@@ -36,6 +36,8 @@ export const doLogin = async (e) => {
 
     localStorage.setItem('token', res.token)
     localStorage.setItem('userName', res.user.userName)
+    localStorage.setItem('profilePicture', res.user.profilePicture)
+    localStorage.setItem('email', res.user.email)
 
     console.log('Login successful:', res)
 

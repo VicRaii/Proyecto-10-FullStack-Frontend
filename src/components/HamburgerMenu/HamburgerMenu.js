@@ -1,6 +1,6 @@
+import { Logout } from '../../utils/functions/Logout'
 import { navigate } from '../../utils/functions/navigate'
 import { routes } from '../../utils/routes/routes'
-import { Logout } from '../Logout/Logout' // Importar la función Logout
 import './HamburgerMenu.css'
 
 export const HamburgerMenu = () => {
@@ -25,17 +25,15 @@ export const HamburgerMenu = () => {
   })
 
   const renderMenuItems = () => {
-    ul.innerHTML = '' // Limpiar el menú antes de renderizarlo
+    ul.innerHTML = ''
 
     const token = localStorage.getItem('token')
 
     routes.forEach((route) => {
-      // Mostrar rutas que requieren autenticación solo si hay token
       if (route.requiresAuth && !token) {
         return
       }
 
-      // Ocultar rutas si el usuario ya está autenticado
       if (route.hideWhenAuth && token) {
         return
       }
@@ -45,14 +43,19 @@ export const HamburgerMenu = () => {
       a.textContent = route.text
       a.href = route.path
 
-      // Añadir eventos según el tipo de ruta
       if (route.text === 'Logout') {
         a.addEventListener('click', (e) => {
           e.preventDefault()
-          Logout() // Llamar a la función Logout
+          Logout()
+          ul.classList.remove('open')
+          hamburgerButton.classList.remove('active')
         })
       } else {
-        a.addEventListener('click', (e) => navigate(e, route))
+        a.addEventListener('click', (e) => {
+          navigate(e, route)
+          ul.classList.remove('open')
+          hamburgerButton.classList.remove('active')
+        })
       }
 
       li.appendChild(a)
@@ -64,6 +67,13 @@ export const HamburgerMenu = () => {
 
   window.addEventListener('tokenChange', () => {
     renderMenuItems()
+  })
+
+  document.addEventListener('click', (event) => {
+    if (!nav.contains(event.target) && ul.classList.contains('open')) {
+      ul.classList.remove('open')
+      hamburgerButton.classList.remove('active')
+    }
   })
 
   nav.append(hamburgerButton, ul)

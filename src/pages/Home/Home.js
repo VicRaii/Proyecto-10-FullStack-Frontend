@@ -60,4 +60,6 @@ export const Home = () => {
 
   window.addEventListener('tokenChange', updateLoginContainer)
   updateLoginContainer()
+
+  return div
 }

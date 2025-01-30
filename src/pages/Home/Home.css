@@ -1,6 +1,10 @@
 #home {
   min-height: 92svh;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .home-header {
@@ -90,10 +94,31 @@
   border-radius: 50%;
   border: #fff 5px solid;
   cursor: pointer;
+  object-fit: cover;
 }
 
-@media (max-width: 950px) {
+@media (max-width: 700px) {
   .login-container {
-    margin-top: var(--p10-margin-l);
+    width: 70%;
+    height: 50%;
+  }
+  .login-container > img,
+  .login-container > h3 {
+    width: 100%;
+  }
+  .login-container > a {
+    width: 80%;
+  }
+  .login-container > a,
+  .login-container > h3 {
+    font-size: var(--p10-font-size-s);
+  }
+  .login-container .profile-picture {
+    width: 60%;
+    height: 150px;
+    margin-bottom: var(--p10-margin-m);
+  }
+  .login-container .welcome-container h3 {
+    font-size: var(--p10-font-size-s);
   }
 }

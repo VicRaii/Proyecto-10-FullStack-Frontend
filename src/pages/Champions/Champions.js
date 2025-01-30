@@ -57,7 +57,15 @@ export const Champions = async () => {
     }
 
     const orderedChampions = cachedChampions
-    const pageSize = 15
+
+    const getPageSize = () => {
+      const width = window.innerWidth
+      if (width < 600) return 5
+      if (width < 900) return 10
+      return 15
+    }
+
+    let pageSize = getPageSize()
     let currentPage = 1
     let filteredChampions = orderedChampions
 
@@ -110,11 +118,21 @@ export const Champions = async () => {
         div.removeChild(existingChampionsContainer)
       }
 
+      const existingPagination = div.querySelector('.pagination')
+      if (existingPagination) {
+        div.removeChild(existingPagination)
+      }
+
       div.appendChild(championsContainer)
       div.appendChild(paginationComponent)
     }
 
     renderPage(currentPage)
+
+    window.addEventListener('resize', () => {
+      pageSize = getPageSize()
+      renderPage(currentPage)
+    })
   } catch (error) {
     div.innerHTML = `
       <p id="errorMessage" style="
